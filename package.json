@@ -1,0 +1,19 @@
+{
+  "name": "plantos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "chai"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DMFletcher/Plantos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DMFletcher/Plantos/issues"
+  },
+  "homepage": "https://github.com/DMFletcher/Plantos#readme"
+}
