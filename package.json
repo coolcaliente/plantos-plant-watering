@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/DMFletcher/Plantos/issues"
   },
-  "homepage": "https://github.com/DMFletcher/Plantos#readme"
+  "homepage": "https://github.com/DMFletcher/Plantos#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mysql": "^2.15.0",
+    "sequelize": "^4.37.7"
+  }
 }
