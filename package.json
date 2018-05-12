@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/DMFletcher/Plantos/issues"
   },
-  "homepage": "https://github.com/DMFletcher/Plantos#readme"
+  "homepage": "https://github.com/DMFletcher/Plantos#readme",
+  "dependencies": {
+    "path": "^0.12.7"
+  }
 }
