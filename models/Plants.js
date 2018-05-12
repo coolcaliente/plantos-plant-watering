@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Plants = sequelize.define("Plant", {
+    var Plants = sequelize.define("Plants", {
         plant_common_name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -31,6 +31,17 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
         }
     });
+
+    Plants.associate = function (models) {
+        console.log(models.userPlants);
+        console.log(models.User);
+        
+        Plants.hasMany(models.userPlants, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
 
     return Plants;
 };

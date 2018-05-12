@@ -1,13 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
-      // Giving the Author model a name of type STRING
+      // Giving the User model a name of type STRING
       name: DataTypes.STRING
     });
      User.associate = function(models) {
-      // Associating Author with Posts
-      // When an Author is deleted, also delete any associated Posts
-      User.hasMany(models.Plants, {
-        onDelete: "cascade"
+      // Associating User with Plants
+      User.hasMany(models.userPlants, {
+        foreignKey: {
+          allowNull: false
+        }
       });
     };
      return User;

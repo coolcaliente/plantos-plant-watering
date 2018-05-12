@@ -7,10 +7,13 @@ var PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+var db = require("./models");
+
 var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({
-    defaultlayour: "main" }));
+    defaultlayour: "main"
+}));
 app.set("view engine", "handlebars");
 
 var mysql = require("mysql");
@@ -22,7 +25,7 @@ var connection = mysql.createConnection({
     database: ""
 });
 
-connection.connect(function(err) {
+connection.connect(function (err) {
     if (err) {
         console.error("error connection: " + err.stack);
         return;
@@ -31,6 +34,8 @@ connection.connect(function(err) {
     console.log("connected as id " + connection.threadID);
 });
 
-app.listen(PORT, function(){
-    console.log("App listening on PORT" + PORT);
+db.sequelize.sync({ force: true }).then(function () {
+    app.listen(PORT, function () {
+        console.log("App listening on PORT" + PORT);
+    })
 });
