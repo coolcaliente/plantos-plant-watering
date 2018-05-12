@@ -7,4 +7,7 @@ $(document).ready(function() {
   //myPlantsBtn
   //addPlantBtn
 
+  //get form data from add a plant
+  //create card with pic, name, link to modal
+
 });
