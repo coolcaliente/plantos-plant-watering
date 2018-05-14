@@ -36,6 +36,7 @@ module.exports = function (sequelize, DataTypes) {
         // console.log(models.userPlants);
         console.log(models.User);
         
+
         Plant.belongsToMany(models.User, {
             foreignKey: {
                 allowNull: false
