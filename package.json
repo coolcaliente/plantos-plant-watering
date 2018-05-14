@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/DMFletcher/Plantos#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "express-session": "^1.14.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "body-parser": "^1.18.2",
     "bootstrap": "^4.1.1",
     "express": "^4.16.3",
