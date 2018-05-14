@@ -5,10 +5,11 @@ module.exports = function(sequelize, DataTypes) {
     });
      User.associate = function(models) {
       // Associating User with Plants
-      User.hasMany(models.userPlants, {
+      User.belongsToMany(models.Plant, {
         foreignKey: {
           allowNull: false
-        }
+        },
+        through: "plantUser"
       });
     };
      return User;
