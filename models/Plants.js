@@ -36,11 +36,11 @@ module.exports = function (sequelize, DataTypes) {
         console.log(models.userPlants);
         console.log(models.User);
         
-        Plants.hasMany(models.userPlants, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
+        // Plants.hasMany(models.userPlants, {
+        //     foreignKey: {
+        //         allowNull: false
+        //     }
+        // });
     };
 
     return Plants;
