@@ -16,7 +16,7 @@
 
   <div class="form-group">
     <label for="wateringNeedsText">Watering Needs (text)</label>
-    <textarea name="watering-needs-text" type="text" class="form-control" rows="3" id="wateringNeedsText" placeholder="Keep the soil evenly moist, but not soggy.">
+    <textarea name="watering-needs-text" type="text" class="form-control" rows="3" id="wateringNeedsText" placeholder="Keep the soil evenly moist, but not soggy."></textarea>
   </div>
 
   <div class="form-group">
@@ -33,19 +33,14 @@
     </select>
   </div>
 
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="petFriendly" id="petFriendly" value="1" checked>
-    <label class="form-check-label" for="petFriendly">
-      Pet friendly plant
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="petFriendly" id="petFriendly" value="0">
-    <label class="form-check-label" for="petFriendly">
-      Not pet friendly plant
-    </label>
+  <div class="form-group">
+    <label for="petFriendly">Pet Friendly?</label>
+    <select class="form-control" id="petFriendly">
+      <option>Yes</option>
+      <option>No</option>
+    </select>
   </div>
 
-  <button class="submit" type="submit">Submit</button>
+  <button class="submit" id="submitPlant" type="submit">Submit</button>
 
 </form>

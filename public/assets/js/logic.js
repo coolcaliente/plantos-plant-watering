@@ -12,7 +12,16 @@ $(document).ready(function() {
     //else take to sign-up page
   })
 
-  //get form data from add a plant
-  //create card with pic, name, link to modal
+
+  $("#submitPlant").on("click", function(){
+    //get form data from add a plant
+    //create card with pic, name, link to modal
+    var newPlant = {
+      common_name: $("#commonName").val().trim(),
+      sci_name: $("#scientificName").val().trim(),
+      water_needs_text: $("#wateringNeedsText").val().trim(),
+      
+    };
+  })
 
 });
