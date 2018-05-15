@@ -2,21 +2,21 @@ module.exports = function (sequelize, DataTypes) {
     var Plant = sequelize.define("Plant", {
         plant_common_name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            // allowNull: false,
             validate: {
                 len: [1]
             }
         },
         plant_scentific_name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            // allowNull: false,
             validate: {
                 len: [1]
             }
         },
         plant_water_text: {
             type: DataTypes.STRING,
-            allowNull: false,
+            // allowNull: false,
             validate: {
                 len: [1]
             }

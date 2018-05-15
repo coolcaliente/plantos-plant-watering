@@ -13,15 +13,33 @@ $(document).ready(function() {
   })
 
 
-  $("#submitPlant").on("click", function(){
+  $("#submitPlant").on("click", function(e){
     //get form data from add a plant
     //create card with pic, name, link to modal
+    e.preventDefault();
+
+    console.log($("#commonName").val().trim());
+
     var newPlant = {
-      common_name: $("#commonName").val().trim(),
-      sci_name: $("#scientificName").val().trim(),
-      water_needs_text: $("#wateringNeedsText").val().trim(),
-      
+      plant_common_name: $("#commonName").val().trim(),
+      plant_scentific_name: $("#scientificName").val().trim(),
+      plant_water_text: $("#wateringNeedsText").val().trim(),
+      plant_water_int: $("#wateringNeedsInt").val().trim(),
+      sun_placement: $("#sunNeeds").val(),
+      pet_friendly: $("#petFriendly").val()
     };
+    console.log(newPlant);
+
+    $.ajax("/api/plants", {
+      type:"POST",
+      data:newPlant
+    }).then(
+      function(){
+        window.location.href = "/myPlants";
+      }
+    )
   })
+
+
 
 });

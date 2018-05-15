@@ -33,7 +33,7 @@ var mysql = require("mysql");
 var connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "password",
+    password: "Root",
     database: "hngplants_db"
 });
 
@@ -46,7 +46,8 @@ if (err) throw err;
     console.log("connected as id " + connection.threadID);
 });
 
-db.sequelize.sync({ force: true }).then(function () {
+//change force back to true
+db.sequelize.sync({ force: false }).then(function () {
     app.listen(PORT, function () {
         console.log("App listening on PORT" + PORT);
     })
