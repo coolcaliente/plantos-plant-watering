@@ -6,46 +6,37 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
 
-    app.get("/", function(req, res) {
-        res.sendFile(path.join(__dirname, "../views/pages/index.handlebars"))
-    });
-
-    app.get("/", function(req, res) {
-        res.sendFile(path.join(__dirname, "../views/pages/about.handlebars"));
-    });
-
-    app.get("/", function(req, res) {
-        res.sendFile(path.join(__dirname, "../views/pages/addPlant.handlebars"));
-    });
-
-
-    // app.get("/", function(req, res) {
-    //     res.sendFile(path.join(_dirname, "../views/pages/login.handlebars"));
-    // });
-
-    app.get("/", function(req, res) {
-        res.sendFile(path.join(__dirname, "../views/pages/myplants.handlebars"));
-    });
-
-    app.get("/", function(req, res) {
-        res.sendFile(path.join(__dirname, "../views/pages/schedule.handlebars"));
-    });
-
-    app.get("/", function(req, res) {
-        // If the user already has an account send them to the members page
-        if (req.user) {
-          res.redirect("/members");
+    app.get("/signup", function(req, res) {
+        var hbsObj={
+            title:"LogIn"
         }
-        res.sendFile(path.join(__dirname, "../public/signup.html"));
-      });
+        res.render("pages/login", hbsObj)
+    });
+    //after signing up or in, direct to myPlants
+    //logo takes user to myPlants
+
+    //myPlants = home page
+    app.get("/myPlants", function(req, res) {
+        var hbsObj={
+            title:"My Plants"
+        }
+        res.render("pages/myPlants", hbsObj)
+    });
+
+    app.get("/addPlant", function(req, res) {
+        var hbsObj={
+        title:"Add a Plant"
+    }
+        res.render("pages/addPlant", hbsObj)
+    });
     
-      app.get("/login", function(req, res) {
-        // If the user already has an account send them to the members page
-        if (req.user) {
-          res.redirect("/members");
+    app.get("/about", function(req, res) {
+        var hbsObj={
+            title:"About Plantos"
         }
-        res.sendFile(path.join(__dirname, "../public/login.html"));
-      });
+        res.render("pages/about", hbsObj)
+    });
+
     
       // Here we've add our isAuthenticated middleware to this route.
       // If a user who is not logged in tries to access this route they will be redirected to the signup page
