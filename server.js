@@ -12,7 +12,6 @@ var PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// do we need this?
 app.use(express.static("public")); 
 
 var db = require("./models");
@@ -20,7 +19,7 @@ var db = require("./models");
 var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({
-    defaultlayout: "main"
+    defaultLayout: "main"
 }));
 app.set("view engine", "handlebars");
 

@@ -19,18 +19,22 @@
     {{!-- installed bootstrap via nmp install --}}
 
   {{!-- bootstrap jquery --}}
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  {{!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-  <script src="../../public/assets/js/logic.js"></script>
+  <script src="/assets/js/logic.js"></script> --}}
 </head>
 <body>
-
   <div class="container">
-    <div class="col">
+    {{!-- <div class="col"> --}}
+      {{> navBar}}
+
       {{!-- pages get injected here  --}}
       {{{body}}} 
-    </div>
+    {{!-- </div> --}}
   </div>
+  {{!-- bootstrap jquery --}}
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
+  <script src="/assets/js/logic.js"></script>
 </body>
 </html>
