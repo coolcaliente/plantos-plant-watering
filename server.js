@@ -12,12 +12,8 @@ var PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//necessary for passport
-app.use(express.static("public"));
-// We need to use sessions to keep track of our user's login status
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
+// do we need this?
+app.use(express.static("public")); 
 
 var db = require("./models");
 
@@ -35,21 +31,21 @@ require("./routes/api-routes.js")(app);
 //this functionality is in config
 // var mysql = require("mysql");
 
-// var connection = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "password",
-//     database: "hngplants_db"
-// });
+var connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "Root",
+    database: "hngplants_db"
+});
 
-// connection.connect(function (err) {
-//     if (err) {
-//         console.error("error connection: " + err.stack);
-//         return;
-//     }
-
-//     console.log("connected as id " + connection.threadID);
-// });
+connection.connect(function (err) {
+    // if (err) {
+    //     console.error("error connection: " + err.stack);
+    //     return;
+    // }
+if (err) throw err;
+    console.log("connected as id " + connection.threadID);
+});
 
 db.sequelize.sync({ force: true }).then(function () {
     app.listen(PORT, function () {
