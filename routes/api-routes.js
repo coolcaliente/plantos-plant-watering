@@ -5,10 +5,10 @@ var passport = require("../config/passport");
 module.exports = function (app) {
 
 // GET route for all plants
-    app.get("/api/plants/", function (req, res) {
-        db.Plant.findAll({})
-        .then(function(dbPlant) {
-            res.json(dbPlant);
+app.get("/api/plants/", function (req, res) {
+    db.Plant.findAll({})
+    .then(function(dbPlant) {
+        res.json(dbPlant);
     });
 });
 
