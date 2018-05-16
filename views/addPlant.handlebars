@@ -16,36 +16,32 @@
 
   <div class="form-group">
     <label for="wateringNeedsText">Watering Needs (text)</label>
-    <textarea name="watering-needs-text" type="text" class="form-control" rows="3" id="wateringNeedsText" placeholder="Keep the soil evenly moist, but not soggy.">
+    <textarea name="watering-needs-text" type="text" class="form-control" rows="3" id="wateringNeedsText" placeholder="Keep the soil evenly moist, but not soggy."></textarea>
   </div>
 
   <div class="form-group">
     <label for="wateringNeedsInt">Watering Needs (input how many days between waterings)</label>
     <input name="watering-needs-int" type="text" class="form-control" id="wateringNeedsInt" placeholder="4">
+    {{!-- need to validate num --}}
   </div>
 
   <div class="form-group">
     <label for="sunNeeds">Sun Needs</label>
     <select class="form-control" id="sunNeeds">
-      <option>Full Sun</option>
-      <option>Partial Sun</option>
-      <option>Low Sun</option>
+      <option value="1">Full Sun</option>
+      <option value="2">Partial Sun</option>
+      <option value="3">Low Sun</option>
     </select>
   </div>
 
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="petFriendly" id="petFriendly" value="1" checked>
-    <label class="form-check-label" for="petFriendly">
-      Pet friendly plant
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="petFriendly" id="petFriendly" value="0">
-    <label class="form-check-label" for="petFriendly">
-      Not pet friendly plant
-    </label>
+  <div class="form-group">
+    <label for="petFriendly">Pet Friendly?</label>
+    <select class="form-control" id="petFriendly">
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+    </select>
   </div>
 
-  <button class="submit" type="submit">Submit</button>
+  <button class="submit" id="submitPlant" type="submit">Submit</button>
 
 </form>
