@@ -9,6 +9,7 @@ app.get("/api/plants/", function (req, res) {
     db.Plant.findAll({})
     .then(function(dbPlant) {
         res.json(dbPlant);
+        console.log("app.get");
     });
 });
 

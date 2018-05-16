@@ -11,6 +11,7 @@ module.exports = function(app) {
             title:"LogIn"
         }
         res.render("pages/login", hbsObj)
+        // res.sendFile(path.join(__dirname, "../views/pages/login"));
     });
 
     app.get("/signup", function(req, res) {
