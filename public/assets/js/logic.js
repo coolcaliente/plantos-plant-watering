@@ -79,8 +79,9 @@ $(document).ready(function() {
         newButton.attr("href", "#");
         newButton.addClass("btn btn-primary");
         newButton.text("Watered Button");//depends on how many days left
-        
 
+        //calculate days
+        
 
         newDiv2.append(newTitle);
         newDiv2.append(newLine);
