@@ -4,7 +4,10 @@ var bodyParser = require("body-parser");
 var session = require('express-session');
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
+var env = require('dotenv').load()
 
+//load passport strategies
+require('./config/passport.js');;
 
 var app = express();
 var PORT = process.env.PORT || 8080;
@@ -17,7 +20,7 @@ app.use(express.static("public"));
 var db = require("./models");
 
 var exphbs = require("express-handlebars");
-
+app.set('views', 'views')//from passport
 app.engine("handlebars", exphbs({
     defaultLayout: "main"
 }));
