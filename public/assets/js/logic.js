@@ -52,6 +52,8 @@ $(document).ready(function() {
           if (difference=0){
             newButton.text("Watered");
             newButton.addClass("feelGoodMsg");
+            //add data-toggle="modal" data-target="#exampleModal" to toggle modal
+            
           }
           //if it's been the required number of days (or more than), water it
           else if (difference >= data[i].plant_water_int){

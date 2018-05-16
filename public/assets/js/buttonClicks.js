@@ -15,8 +15,14 @@ $(document).ready(function() {
   })
 
   //if user clicks "watered" button, a happy message pops up
+  // Button trigger for modal on myPlants page
   $(document).on("click", ".feelGoodMsg", function () {
+
   });
+
+  //data-toggle="modal" data-target="#exampleModal">
+
+
   
   $(document).on("click", ".waterBtn", function (e) {
     console.log(this, this.id);
