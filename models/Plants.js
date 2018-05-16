@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1]
             }
         },
-        plant_scentific_name: {
+        plant_scientific_name: {
             type: DataTypes.STRING,
             // allowNull: false,
             validate: {
