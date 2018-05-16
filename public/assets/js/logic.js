@@ -21,7 +21,12 @@ $(document).ready(function() {
   });
   
   $(document).on("click", ".waterBtn", function (e) {
-    console.log(this.id);
+    console.log(this, this.id);
+    var button=this.id;
+    $("a").removeClass("figuringCycle");
+    this.addClass("feelGoodMsg");
+    // button.attr("id", "feelGoodMsg");
+    // button.text("Watered");
   });
 
   //if user clicks "water now" button, it changes to "watered"
@@ -126,30 +131,30 @@ $(document).ready(function() {
           //if current date = lwd, text = "watered"
           if (difference=0){
             newButton.text("Watered");
-            newButton.attr("id", "feelGoodMsg");
+            newButton.addClass("feelGoodMsg");
           }
           //if it's been the required number of days (or more than), water it
           else if (difference >= data[i].plant_water_int){
             newButton.text("Water Now");
-            newButton.attr("id", "waterNowBtn");
+            newButton.addClass("waterNowBtn");
           }
           //otherwise figure out how many more days until watering
           else {
             var d = data[i].plant_water_int - difference;
             if (d=1){
               newButton.text(d+" Day Left");
-              newButton.attr("id", "changeCycleBtn");
+              newButton.addClass("changeCycleBtn");
             }
             else{
               newButton.text(d+" Days Left");
-              newButton.attr("id", "changeCycleBtn");
+              newButton.addClass("changeCycleBtn");
             }
           }
         }
         //if there's no lwd, start calculating it
         else{
           newButton.text("Click when watered to start calculing plant cycle.");
-          newButton.attr("id", "figuringCycle");
+          newButton.addClass("figuringCycle");
         }
 
         newDiv2.append(newTitle);

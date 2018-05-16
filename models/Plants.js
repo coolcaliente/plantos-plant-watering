@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         plant_water_text: {
-            type: DataTypes.TEXT,
+            type: DataTypes.TEXT("long"),
             // allowNull: false,
             validate: {
                 len: [1]
