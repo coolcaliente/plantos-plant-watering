@@ -81,7 +81,14 @@ $(document).ready(function() {
         newButton.text("Watered Button");//depends on how many days left
 
         //calculate days
-        
+        // var lwd = data[i].last_watered_date; //keep this
+        var ldw=moment("2018, 05, 10", "YYYY MM DD");//temp
+        var differ = dwl.diff(moment(), "days");
+        console.log(differ);
+
+        if (differ < 0){
+          
+        }
 
         newDiv2.append(newTitle);
         newDiv2.append(newLine);
