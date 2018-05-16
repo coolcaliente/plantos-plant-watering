@@ -44,47 +44,60 @@ $(document).ready(function() {
 
   function getPlants(){
     $.get("/api/plants", function(data){
-      console.log("here"+data[0].id);
 
       for (var i=0; i<data.length; i++){
+        //adding bootstrap card
         var newDiv=$("<div>");
-        newDiv.text(data[i].plant_common_name);
+        newDiv.addClass("card");
+        newDiv.css("width", "18rem");
         newDiv.attr("id", data[i].id);
 
+        var newImg=$("<img>");
+        newImg.addClass("card-img-top mx-auto");
+        newImg.attr("alt", data[i].plant_common_name);
+        
         //use this after images in db
-        // var imageUrl=data[i].plant_image;
-        // newDiv.css('background-image', '/url(' + imageUrl + ')');
+        // newImg.attr("src", data[i].plant_image);
+        
+        //delete this after images in db    
+        newImg.attr("src", "assets/img/junkPlant.jpg");
+        // newDiv.css("background-image", "url('assets/img/junkPlant.jpg')"); //works
+        // newDiv.css("background-image", "url('https://www.ikea.com/au/en/images/products/asplenium-potted-plant__0540629_PE653098_S4.JPG')");
 
-        //delete this after images in db
-        newDiv.css('background-image', 'url(" https://www.ikea.com/au/en/catalog/products/80349713/")');
-        newDiv.css("background-image", "url('https://www.homedepot.com/p/Costa-Farms-ZZ-Plant-in-6-in-Grower-Pot-6ZZ/202204595')");
+        
+        var newDiv2=$("<div>");
+        newDiv2.addClass("card-body");
+        
+        var newTitle=$("<h5>");
+        newTitle.addClass("card-title");
+        newTitle.text(data[i].plant_common_name);
+
+        var newLine=$("<p>");
+        newLine.addClass("card-text");
+
+        var newButton=$("<a>");
+        newButton.attr("href", "#");
+        newButton.addClass("btn btn-primary");
+        newButton.text("Watered Button");//depends on how many days left
+        
+
+
+        newDiv2.append(newTitle);
+        newDiv2.append(newLine);
+        newDiv2.append(newButton);
+        newDiv.append(newImg);
+        newDiv.append(newDiv2);
 
         //delete all between here ....
-        newDiv.css("border", "1px solid black");
-        newDiv.css("border-radius", "50%");
-        newDiv.css("height", "150px");
-        newDiv.css("width", "150px");
+        newDiv.css("border-radius", "15%");
+        newImg.css("height", "100px");
+        newImg.css("border-top", "20px");
+        newImg.css("width", "100px");
         newDiv.css("text-align", "center");
         //... and here after scss styling
 
-        var newButton=$("<button>");
-        newButton.text("hi");//depends on how many days left
-        newButton.attr("wateredIt");
-        newButton.append(newDiv);
-
         $("#myPlantsPage").prepend(newDiv);
       }
-
-
-      // var rowsToAdd = [];
-      // for (var i = 0; i < data.length; i++) {
-      //   rowsToAdd.push(createAuthorRow(data[i]));
-      // }
-      // authorSelect.empty();
-      // console.log(rowsToAdd);
-      // console.log(authorSelect);
-      // authorSelect.append(rowsToAdd);
-      // authorSelect.val(authorId);
 
     })
   }

@@ -33,19 +33,11 @@ var mysql = require("mysql");
 var connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-<<<<<<< HEAD
     password: "Root",
-=======
-    password: "andirules",
->>>>>>> 2a7bc9e939cfeff34a6066e08306b62ef9dee9a9
     database: "hngplants_db"
 });
 
 connection.connect(function (err) {
-    // if (err) {
-    //     console.error("error connection: " + err.stack);
-    //     return;
-    // }
 if (err) throw err;
     console.log("connected as id " + connection.threadID);
 });
