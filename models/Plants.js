@@ -15,20 +15,26 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         plant_water_text: {
-            type: DataTypes.STRING,
-            // allowNull: false,
+            type: DataTypes.TEXT,
+            allowNull: false,
             validate: {
                 len: [1]
             }
         },
         plant_water_int: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER
         },
         pet_friendly: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.BOOLEAN
         },
         sun_placement: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER
+        },
+        last_watered_date: {
+            type: DataTypes.DATEONLY
+        },
+        image:{
+            type: DataType.BLOB('long')
         }
     });
 
