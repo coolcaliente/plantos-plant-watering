@@ -1,6 +1,6 @@
 var db = require("../models");
 //required for passport
-var passport = require("../config/passport");
+var passport = require("../config/passport.js");
 
 module.exports = function (app) {
 
@@ -93,11 +93,13 @@ app.put("/api/plants",function(req, res) {
       password: req.body.password
     }).then(function() {
       res.redirect(307, "/api/login");
-    }).catch(function(err) {
-      console.log(err);
-      res.json(err);
-      // res.status(422).json(err.errors[0].message);
-    });
+    })
+    // .catch(function(err) {
+    //   console.log(err);
+    //   res.json(err);
+    //   // res.status(422).json(err.errors[0].message);
+    // })
+    ;
   });
 
   // Route for logging user out
