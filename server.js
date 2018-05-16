@@ -33,7 +33,7 @@ var mysql = require("mysql");
 var connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "password",
+    password: "Chronos02",
     database: "hngplants_db"
 });
 
