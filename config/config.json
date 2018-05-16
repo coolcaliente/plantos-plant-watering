@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< Updated upstream
-    "password": "password",
-=======
     "password": "Chronos02",
->>>>>>> Stashed changes
     "database": "hngplants_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
