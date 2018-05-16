@@ -9,6 +9,7 @@ app.get("/api/plants/", function (req, res) {
     db.Plant.findAll({})
     .then(function(dbPlant) {
         res.json(dbPlant);
+        console.log("app.get");
     });
 });
 
@@ -36,14 +37,11 @@ app.get("/api/plants/:id", function(req, res) {
     });
 });
 
-// POST route
+// POST route is working
 app.post("/api/plants", function(req, res) {
-    console.log(req.body);
-    db.Plant.create({
-        title:req.body.title,
-        body: req.body.body,
-        category: req.body.category
-    })
+    db.Plant.create(
+        req.body
+    )
     .then(function(dbPlant){
         res.json(dbPlant);
     });

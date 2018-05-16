@@ -11,6 +11,7 @@ module.exports = function(app) {
             title:"LogIn"
         }
         res.render("pages/login", hbsObj)
+        // res.sendFile(path.join(__dirname, "../views/pages/login"));
     });
 
     app.get("/signup", function(req, res) {
@@ -34,7 +35,7 @@ module.exports = function(app) {
         var hbsObj={
         title:"Add a Plant"
     }
-        res.render("addPlant", hbsObj)
+        res.render("pages/addPlant", hbsObj)
     });
     
     app.get("/about", function(req, res) {
