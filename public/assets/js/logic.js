@@ -39,7 +39,9 @@ $(document).ready(function () {
         var newButton = $("<a>");
         newButton.addClass("btn btn-primary waterBtn");
 
-        // console.log(data[i].last_watered_date);
+
+
+
 
         //if there's a last watered date...
         if (data[i].last_watered_date !== null) {
@@ -47,12 +49,12 @@ $(document).ready(function () {
           // var lwd = data[i].last_watered_date; //keep this
           var lwd = moment("2018, 05, 10", "YYYY MM DD");//temp
           var difference = lwd.diff(moment(), "days");
-          console.log(difference);
+          // console.log(difference);
 
           //if current date = lwd, text = "watered"
           if (difference = 0) {
             newButton.text("Watered");
-            newButton.addClass("feelGoodMsg");
+            newButton.addClass("feelGoodMsg");//need this?
             //add data-toggle="modal" data-target="#exampleModal" to toggle modal
             newButton.attr("data-toggle", "modal");
             newButton.attr("data-target", "#happyMsgModal");
@@ -75,20 +77,15 @@ $(document).ready(function () {
             }
           }
         }
-
-        //if there's no lwd, start calculating it
-        else if(data[i].last_watered_date !== null && data[i].plant_water_int !== null){
-          newButton.text("Click when watered to start calculing plant cycle.");
-        }
-        //if there's no lwd, but there's a plant_water_int
-        else if(data[i].last_watered_date !== null && data[i].plant_water_int !== null){
-          
-        }
-        //if there's no lwd and no plant_water_int, start calculating it
-        else{
+        //if there's no lwd and no water_int, start calculating it
+        else if(data[i].last_watered_date === null && data[i].plant_water_int === null){
           newButton.text("Calculing watering cycle...");
-
           newButton.addClass("figuringCycle");
+        }
+        //if there's no lwd but there's a plant_water_int, calculate watering date with int
+        else if(data[i].last_watered_date === null && data[i].plant_water_int !== null){
+          newButton.text("Water Now");
+          newButton.addClass("waterNowBtn");
         }
 
         newDiv2.append(newTitle);
