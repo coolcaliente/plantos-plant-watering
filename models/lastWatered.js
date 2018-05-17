@@ -12,6 +12,7 @@ module.exports = function (sequelize, DataTypes) {
         console.log(models.Plant);
 
 
+
         lastWatered.hasOne(models.User, { through: models.Plant });
         lastWatered.belongsTo(models.Plant);
     };

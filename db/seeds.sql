@@ -11,3 +11,8 @@ INSERT INTO users (name, email, password, createdAt, updatedAt)
 VALUES ('William', 'william@william.com', 'password', 0, 0);
 
 SELECT * FROM users;
+
+INSERT INTO lastwatereds (last_watered_date, createdAt, updatedAt) 
+VALUES ('2018-05-16', 0, 0);
+
+SELECT * FROM lastwatereds;
