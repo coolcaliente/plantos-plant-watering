@@ -39,6 +39,8 @@ app.get("/api/plants/:id", function(req, res) {
 
 // POST route is working
 app.post("/api/plants", function(req, res) {
+    console.log(req.body);
+    
     db.Plant.create(
         req.body
     )
