@@ -2,6 +2,8 @@
 
 $(document).ready(function() {
  
+  getPlants();
+
   function getPlants(){
     $.get("/api/plants", function(data){
 
@@ -38,7 +40,7 @@ $(document).ready(function() {
         var newButton=$("<a>");
         newButton.addClass("btn btn-primary waterBtn");
 
-        console.log(data[i].last_watered_date);
+        // console.log(data[i].last_watered_date);
 
         //if there's a last watered date...
         if (data[i].last_watered_date !== null){
@@ -53,7 +55,8 @@ $(document).ready(function() {
             newButton.text("Watered");
             newButton.addClass("feelGoodMsg");
             //add data-toggle="modal" data-target="#exampleModal" to toggle modal
-            
+            newButton.attr("data-toggle", "modal");
+            newButton.attr("data-target", "#happyMsgModal");
           }
           //if it's been the required number of days (or more than), water it
           else if (difference >= data[i].plant_water_int){
