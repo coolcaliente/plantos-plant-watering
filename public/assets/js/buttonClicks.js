@@ -58,20 +58,10 @@ $(document).ready(function() {
       plant_common_name: $("#commonName").val().trim(),
       plant_water_text: $("#wateringNeedsText").val().trim(),
       sun_placement: $("#sunNeeds").val(),
-      pet_friendly: $("#petFriendly").val()
+      pet_friendly: $("#petFriendly").val(),
+      plant_water_int: ($("#wateringNeedsInt").val().trim()) || null,
+      plant_scientific_name: $("#scientificName").val().trim() || null
     };
-
-    //add to newPlant object if these optional values are included on the form
-    if ($("#wateringNeedsInt").val().trim() !== ""){
-      newPlant={
-        plant_water_int: $("#wateringNeedsInt").val().trim(),
-      }
-    }
-    if ($("#scientificName").val().trim() !== ""){
-      newPlant={
-        plant_scentific_name: $("#scientificName").val().trim(),
-      }
-    }
 
     $.ajax("/api/plants", {
       type:"POST",
