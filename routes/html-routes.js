@@ -43,7 +43,7 @@ module.exports = function(app) {
         var hbsObj={
         title:"Add a Plant"
     }
-        res.render("pages/addPlant", hbsObj)
+        res.render("addPlant", hbsObj)
     });
     
     app.get("/about", function(req, res) {

@@ -39,8 +39,11 @@ app.get("/api/plants/:id", function(req, res) {
 
 // POST route is working
 app.post("/api/plants", function(req, res) {
-    console.log(req.body);
-    
+
+    if (req.body.plant_water_int === ""){
+        req.body.plant_water_int = null;
+    }
+
     db.Plant.create(
         req.body
     )
@@ -61,7 +64,7 @@ app.delete("api/plants/:id", function(req, res){
     });
 });
 
-// PUT route
+// PUT route - updates the last_watered_date
 app.put("/api/plants",function(req, res) {
     db.Plant.update(req.body,
     {
@@ -73,6 +76,8 @@ app.put("/api/plants",function(req, res) {
         res.json(dbPlant);
         });
     });    
+
+
       // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
