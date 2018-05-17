@@ -1,5 +1,6 @@
 // var moment = require("moment");
 
+
 $(document).ready(function () {
 
   getPlants();//renders plant cards on the page
@@ -123,6 +124,8 @@ $(document).ready(function () {
           if (difference = 0) {
             newButton.text("Watered");
             newButton.addClass("feelGoodMsg");
+            //add data-toggle="modal" data-target="#exampleModal" to toggle modal
+            
           }
           //if it's been the required number of days (or more than), water it
           else if (difference >= data[i].plant_water_int) {
@@ -142,9 +145,19 @@ $(document).ready(function () {
             }
           }
         }
+
         //if there's no lwd, start calculating it
         else {
           newButton.text("Click when watered to start calculing plant cycle.");
+
+        //if there's no lwd, but there's a plant_water_int
+        else if(data[i].last_watered_date !== null && data[i].plant_water_int !== null){
+          
+        }
+        //if there's no lwd and no plant_water_int, start calculating it
+        else{
+          newButton.text("Calculing watering cycle...");
+
           newButton.addClass("figuringCycle");
         }
 
