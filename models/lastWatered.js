@@ -2,7 +2,8 @@ module.exports = function (sequelize, DataTypes) {
     var lastWatered = sequelize.define("lastWatered", {
 
         last_watered_date: {
-            type: DataTypes.DATEONLY
+            type: DataTypes.DATEONLY,
+            allowNull: true
         },
     });
 
@@ -13,15 +14,15 @@ module.exports = function (sequelize, DataTypes) {
 
         lastWatered.hasMany(models.User, {
             foreignKey: {
-                allowNull: false
+                allowNull: true
             },
         });
-        lastWatered.hasMany(models.Plants, {
+        lastWatered.hasMany(models.Plant, {
             foreignKey: {
-                allowNull: false
+                allowNull: true
             },
         });
     };
 
-    return Plant;
+    return lastWatered;
 };
