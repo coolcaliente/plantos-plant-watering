@@ -1,78 +1,7 @@
 // var moment = require("moment");
 
-
 $(document).ready(function () {
-
   getPlants();//renders plant cards on the page
-
-  $("#scheduleBtn").on("click", function () {
-    window.location.href = "../../../views/pages/schedule.handlebars";
-  });
-
-  //addPlantBtn
-  $("#addPlantBtn").on("click", function () {
-    console.log("here");
-    window.location.href = "/addPlant"
-    //if logged in, take to page
-    //else take to sign-up page
-  })
-
-  //if user clicks "watered" button, a happy message pops up
-  $(document).on("click", ".feelGoodMsg", function () {
-  });
-
-  $(document).on("click", ".waterBtn", function (e) {
-    console.log(this, this.id);
-    var button = this.id;
-    $("a").removeClass("figuringCycle");
-    this.addClass("feelGoodMsg");
-    // button.attr("id", "feelGoodMsg");
-    // button.text("Watered");
-  });
-
-  //if user clicks "water now" button, it changes to "watered"
-  $(document).on("click", ".waterNowBtn", function () {
-    // var button=??;
-    // console.log(this.id);
-    // button.removeAtt("id", "feelGoodMsg")
-    // button.attr("id", "feelGoodMsg");
-    // button.text("Watered");
-  });
-
-  //if user clicks "figuring cycle" button, it starts calculating and sends msg with directions
-  $(document).on("click", ".figuringCycle", function () {
-  });
-
-  //if user clicks "x days left" it gives the option to restart the water cycle or change the cycle (if they've miscalculated how much water is needed
-  $(document).on("click", "changeCycleBtn", function () {
-  });
-
-  $("#submitPlant").on("click", function (e) {
-    //get form data from add a plant
-    //create card with pic, name, link to modal
-    e.preventDefault();
-
-    console.log($("#commonName").val().trim());
-
-    var newPlant = {
-      plant_common_name: $("#commonName").val().trim(),
-      plant_water_text: $("#wateringNeedsText").val().trim(),
-      sun_placement: $("#sunNeeds").val(),
-      pet_friendly: $("#petFriendly").val(),
-      plant_water_int: ($("#wateringNeedsInt").val().trim()) || null,
-      plant_scientific_name: $("#scientificName").val().trim() || null
-    };
-    console.log(newPlant);
-    //add to newPlant object if these optional values are included on the form
-   
-    $.ajax("/api/plants", {
-      type: "POST",
-      data: newPlant
-    }).then(
-      function () {
-        window.location.href = "/myPlants";
-      });
-  });
 
   function getPlants() {
     $.get("/api/plants", function (data) {
@@ -110,7 +39,7 @@ $(document).ready(function () {
         var newButton = $("<a>");
         newButton.addClass("btn btn-primary waterBtn");
 
-        console.log(data[i].last_watered_date);
+        // console.log(data[i].last_watered_date);
 
         //if there's a last watered date...
         if (data[i].last_watered_date !== null) {
@@ -125,7 +54,8 @@ $(document).ready(function () {
             newButton.text("Watered");
             newButton.addClass("feelGoodMsg");
             //add data-toggle="modal" data-target="#exampleModal" to toggle modal
-            
+            newButton.attr("data-toggle", "modal");
+            newButton.attr("data-target", "#happyMsgModal");
           }
           //if it's been the required number of days (or more than), water it
           else if (difference >= data[i].plant_water_int) {
@@ -147,9 +77,9 @@ $(document).ready(function () {
         }
 
         //if there's no lwd, start calculating it
-        else {
+        else if(data[i].last_watered_date !== null && data[i].plant_water_int !== null){
           newButton.text("Click when watered to start calculing plant cycle.");
-
+        }
         //if there's no lwd, but there's a plant_water_int
         else if(data[i].last_watered_date !== null && data[i].plant_water_int !== null){
           

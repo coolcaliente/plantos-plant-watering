@@ -12,29 +12,26 @@ $(document).ready(function() {
     window.location.href="/addPlant"
     //if logged in, take to page
     //else take to sign-up page
-  })
+  });
 
   //if user clicks "watered" button, a happy message pops up
   // Button trigger for modal on myPlants page
-  $(document).on("click", ".feelGoodMsg", function () {
-
-  });
+  $(document).on("click", "#happyMsgModal", function () {});
 
   //data-toggle="modal" data-target="#exampleModal">
 
-
-  
+  //this is junk, delete later
   $(document).on("click", ".waterBtn", function (e) {
-    console.log(this, this.id);
-    var button=this.id;
-    $("a").removeClass("figuringCycle");
-    $(this).addClass("feelGoodMsg");
-    // button.attr("id", "feelGoodMsg");
-    // button.text("Watered");
+    $(this).removeClass("figuringCycle");
+    $(this).addClass("feelGoodMsg");//working
+    $(this).attr("data-target", "#happyMsgModal");
+    $(this).attr("data-toggle", "modal");
   });
 
   //if user clicks "water now" button, it changes to "watered"
   $(document).on("click", ".waterNowBtn", function () {
+    $(this).removeClass("waterNowBtn");
+    $(this).addClass("");
     // var button=??;
     // console.log(this.id);
     // button.removeAtt("id", "feelGoodMsg")
