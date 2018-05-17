@@ -9,20 +9,12 @@ module.exports = function (sequelize, DataTypes) {
 
     lastWatered.associate = function (models) {
         // console.log(models.userPlants);
-        console.log(models.User);
-        
+        console.log(models.Plant);
 
-        lastWatered.hasMany(models.User, {
-            foreignKey: {
-                allowNull: true
-            },
-        });
-        lastWatered.hasMany(models.Plant, {
-            foreignKey: {
-                allowNull: true
-            },
-        });
+
+        lastWatered.hasOne(models.User, { through: models.Plant });
+        lastWatered.belongsTo(models.Plant);
     };
 
     return lastWatered;
-};
+}; 
