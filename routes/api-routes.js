@@ -13,7 +13,7 @@ app.get("/api/plants/", function (req, res) {
     });
 });
 
-// GET route by category
+// GET route by category --- do we need this??
 app.get("api/plants/category/:category", function (req, res) {
     db.Plant.findAll({
         where: {
@@ -27,13 +27,28 @@ app.get("api/plants/category/:category", function (req, res) {
 
 // GET route for specific plant
 app.get("/api/plants/:id", function(req, res) {
+    console.log(req.params.id);
     db.Plant.findOne({
         where: {
-            id: req.param.id
+            id: req.params.id
         }
     })
     .then(function(dbPlant) {
         res.json(dbPlant);
+    });
+});
+
+// GET route for specific plant's last watered date
+//id here is the plant id, not user id
+app.get("/api/lastWatered/:id", function(res, req){
+    console.log(req.params.id);
+    db.lastWatered.findOne({
+        where:{
+            id:req.params.id
+        }
+    })
+    .then(function(dbLastWatered){
+        res.json(dbLastWatered);
     });
 });
 

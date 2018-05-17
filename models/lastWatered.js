@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
 
     lastWatered.associate = function (models) {
         // console.log(models.userPlants);
-        console.log(models.User);
+        console.log("here"+models.User);
         
 
         lastWatered.hasMany(models.User, {
