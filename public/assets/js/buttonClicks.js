@@ -7,8 +7,9 @@ $(document).ready(function() {
   });
 
   //addPlantBtn
-  $("#addPlantBtn").on("click", function(){
+  $("#addPlantBtn").on("click", function(e){
     console.log("here");
+    e.preventDefault();
     window.location.href="/addPlant"
     //if logged in, take to page
     //else take to sign-up page
@@ -16,27 +17,27 @@ $(document).ready(function() {
 
   //if user clicks "watered" button, a happy message pops up
   // Button trigger for modal on myPlants page
-  $(document).on("click", "#happyMsgModal", function () {});
+  $(document).on("click", "#happyMsgModal", function () {}); //working
 
   //data-toggle="modal" data-target="#exampleModal">
 
   //this is junk, delete later
-  $(document).on("click", ".waterBtn", function (e) {
-    $(this).removeClass("figuringCycle");
-    $(this).addClass("feelGoodMsg");//working
-    $(this).attr("data-target", "#happyMsgModal");
-    $(this).attr("data-toggle", "modal");
-  });
+  // $(document).on("click", ".waterBtn", function (e) {
+  //   $(this).removeClass("figuringCycle");
+  //   $(this).addClass("feelGoodMsg");//working
+  //   $(this).attr("data-target", "#happyMsgModal");
+  //   $(this).attr("data-toggle", "modal");
+  // });
 
   //if user clicks "water now" button, it changes to "watered"
   $(document).on("click", ".waterNowBtn", function () {
     $(this).removeClass("waterNowBtn");
-    $(this).addClass("");
-    // var button=??;
-    // console.log(this.id);
-    // button.removeAtt("id", "feelGoodMsg")
-    // button.attr("id", "feelGoodMsg");
-    // button.text("Watered");
+    $(this).addClass("feelGoodMsg");//need this?
+    $(this).attr("data-toggle", "modal");
+    $(this).attr("data-target", "#happyMsgModal");
+    $(this).text("Watered");
+
+    //update lwd to today using ajax call
   });
 
   //if user clicks "figuring cycle" button, it starts calculating and sends msg with directions
@@ -51,15 +52,17 @@ $(document).ready(function() {
     //get form data from add a plant
     //create card with pic, name, link to modal
     e.preventDefault();
-
-    console.log($("#commonName").val().trim());
+    var waterInt = $("#wateringNeedsInt").val().trim();
+    if (waterInt === ""){
+      waterInt = null;
+    }
 
     var newPlant = {
       plant_common_name: $("#commonName").val().trim(),
       plant_water_text: $("#wateringNeedsText").val().trim(),
       sun_placement: $("#sunNeeds").val(),
       pet_friendly: $("#petFriendly").val(),
-      plant_water_int: ($("#wateringNeedsInt").val().trim()) || null,
+      plant_water_int: waterInt,
       plant_scientific_name: $("#scientificName").val().trim() || null
     };
 

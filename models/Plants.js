@@ -25,7 +25,8 @@ module.exports = function (sequelize, DataTypes) {
         //get error msg for below: Incorrect integer value
         plant_water_int: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            // allowNull: true
+            default: null
         },
         pet_friendly: {
             type: DataTypes.BOOLEAN
