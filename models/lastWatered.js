@@ -18,20 +18,11 @@ module.exports = function (sequelize, DataTypes) {
 
     lastWatered.associate = function (models) {
         // console.log(models.userPlants);
-<<<<<<< HEAD
-        // console.log(models.User);
-        
-
-        lastWatered.belongsTo(models.User, {
-            through : models.Plant
-        });
-=======
         console.log(models.Plant);
 
 
 
         lastWatered.hasOne(models.User, { through: models.Plant });
->>>>>>> 9654dcc0e797d84c24e091798b9b9b3c37960230
         lastWatered.belongsTo(models.Plant);
     };
 
