@@ -37,7 +37,7 @@ module.exports = function(app) {
     app.get("/myPlants", function(req, res) {
         var hbsObj={
             title:"My Plants",
-            bodyClass: ""
+            bodyClass: "addPlantBody"
         }
         res.render("myPlants", hbsObj)
     });
