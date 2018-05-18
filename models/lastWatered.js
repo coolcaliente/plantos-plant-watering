@@ -20,10 +20,13 @@ module.exports = function (sequelize, DataTypes) {
         // console.log(models.userPlants);
         console.log(models.Plant);
 
+        lastWatered.belongsTo(models.User, { through: models.Plant });
 
-
-        lastWatered.hasOne(models.User, { through: models.Plant });
+        // lastWatered.hasOne(models.User, { through: models.Plant });
         lastWatered.belongsTo(models.Plant);
+
+        // lastWatered.belongsToMany(models.Plant);
+        // lastWatered.belongsToMany(models.User);
     };
 
     return lastWatered;

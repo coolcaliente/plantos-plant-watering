@@ -38,9 +38,11 @@ $(document).ready(function () {
 
         var newButton = $("<a>");
         newButton.addClass("btn btn-primary waterBtn");
+        newButton.attr("id", data[i].id);
 
 
-
+        console.log(data[i].lastWatereds);
+        // console.log(data[i].lastWatereds);
 
 
         //if there's a last watered date...

@@ -40,13 +40,22 @@ app.get("/api/plants/:id", function(req, res) {
     });
 });
 
+// GET route for all lastWatered data
+app.get("/api/lastWatered/", function (req, res) {
+    db.lastWatered.findAll({
+    })
+    .then(function(dbLastWatered) {
+        res.json(dbLastWatered);
+        console.log("app.get");
+    });
+});
+
 // GET route for specific plant's last watered date
-//id here is the plant id, not user id
-app.get("/api/lastWatered/:id", function(res, req){
-    console.log(req.params.id);
+app.get("/api/lastWatered/:id", function(req, res){
+    console.log(req.params.id);//working
     db.lastWatered.findOne({
         where:{
-            id:req.params.id
+            id: req.params.id
         }
     })
     .then(function(dbLastWatered){
@@ -69,17 +78,18 @@ app.post("/api/plants", function(req, res) {
     });
 });
 
-// DELETE route
-app.delete("api/plants/:id", function(req, res){
-    db.Plant.destroy({
-        where: {
-            id: req.params.id
-        }
+//do we need this?
+app.post("/api/plants/:id", function(req, res){
+    db.Plant.post({
+        
     })
-    .then(function(dbPlant) {
-        res.json(dbPlant);
-    });
-});
+})
+
+// POST lastWatered
+app.post("/api/lastWatered")
+
+// PUT - this updates lwd1, 2, 3, 4 on lastwatered table
+app.put("/api/lastWatered")
 
 // PUT route - updates the last_watered_date
 app.put("/api/plants",function(req, res) {
@@ -94,8 +104,19 @@ app.put("/api/plants",function(req, res) {
         });
     });    
 
+// DELETE route
+app.delete("api/plants/:id", function(req, res){
+    db.Plant.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(function(dbPlant) {
+        res.json(dbPlant);
+        });
+    });
 
-      // Using the passport.authenticate middleware with our local strategy.
+  // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
