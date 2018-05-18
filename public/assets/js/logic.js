@@ -88,6 +88,7 @@ $(document).ready(function () {
         else if(data[i].last_watered_date === null && data[i].plant_water_int !== null){
           newButton.text("Water Now");
           newButton.addClass("waterNowBtn");
+          
         }
 
         newDiv2.append(newTitle);

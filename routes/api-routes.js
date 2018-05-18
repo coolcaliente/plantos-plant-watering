@@ -14,18 +14,17 @@ app.get("/api/plants/", function (req, res) {
         console.log("app.get");
     });
 });
-
-// GET route by category --- do we need this??
-app.get("api/plants/category/:category", function (req, res) {
-    db.Plant.findAll({
-        where: {
-            category: req.params.category
-        }
-    })
-    .then(function(dbPlant){
-        res.json(dbPlant);
-    });
-});
+// GET route by category
+// app.get("api/plants/category/:category", function (req, res) {
+//     db.Plant.findAll({
+//         where: {
+//             category: req.params.category
+//         }
+//     })
+//     .then(function(dbPlant){
+//         res.json(dbPlant);
+//     });
+// });
 
 // GET route for specific plant
 app.get("/api/plants/:id", function(req, res) {
@@ -55,8 +54,9 @@ app.get("/api/lastWatered/:id", function(req, res){
     console.log(req.params.id);//working
     db.lastWatered.findOne({
         where:{
-            id: req.params.id
-        }
+            id:req.params.id
+        },
+        // include: [db.lastWatered]
     })
     .then(function(dbLastWatered){
         res.json(dbLastWatered);
