@@ -15,6 +15,7 @@ app.get("/api/plants/", function (req, res) {
     });
 });
 
+<<<<<<< HEAD
 // GET route by category
 // app.get("api/plants/category/:category", function (req, res) {
 //     db.Plant.findAll({
@@ -26,16 +27,44 @@ app.get("/api/plants/", function (req, res) {
 //         res.json(dbPlant);
 //     });
 // });
+=======
+// GET route by category --- do we need this??
+app.get("api/plants/category/:category", function (req, res) {
+    db.Plant.findAll({
+        where: {
+            category: req.params.category
+        }
+    })
+    .then(function(dbPlant){
+        res.json(dbPlant);
+    });
+});
+>>>>>>> 9654dcc0e797d84c24e091798b9b9b3c37960230
 
 // GET route for specific plant
 app.get("/api/plants/:id", function(req, res) {
+    console.log(req.params.id);
     db.Plant.findOne({
         where: {
-            id: req.param.id
+            id: req.params.id
         }
     })
     .then(function(dbPlant) {
         res.json(dbPlant);
+    });
+});
+
+// GET route for specific plant's last watered date
+//id here is the plant id, not user id
+app.get("/api/lastWatered/:id", function(res, req){
+    console.log(req.params.id);
+    db.lastWatered.findOne({
+        where:{
+            id:req.params.id
+        }
+    })
+    .then(function(dbLastWatered){
+        res.json(dbLastWatered);
     });
 });
 

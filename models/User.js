@@ -26,6 +26,7 @@ module.exports = function(sequelize, DataTypes) {
       // Associating User with Plants
       User.belongsToMany(models.Plant, {
         foreignKey: {
+          name: 'plantID',
           allowNull: true
         },
         through: "plantUser"

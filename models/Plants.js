@@ -49,6 +49,7 @@ module.exports = function (sequelize, DataTypes) {
 
         Plant.belongsToMany(models.User, {
             foreignKey:  {
+                name: "userID",
                 allowNull: true
             },
             through: "plantUser"
