@@ -8,7 +8,8 @@ module.exports = function(app) {
 
     app.get("/", function(req, res) {
         var hbsObj={
-            title:"LogIn"
+            title:"LogIn",
+            bodyClass: "signInBody"
         }
         res.render("login", hbsObj)
     });
@@ -26,7 +27,6 @@ module.exports = function(app) {
     app.get("/signup", function(req, res) {
         var hbsObj={
             title:"signup",
-            
         }
         res.render("signup", hbsObj)
     });
@@ -37,14 +37,15 @@ module.exports = function(app) {
     app.get("/myPlants", function(req, res) {
         var hbsObj={
             title:"My Plants",
-            bodyClass: "red"
+            bodyClass: ""
         }
         res.render("myPlants", hbsObj)
     });
 
     app.get("/addPlant", function(req, res) {
         var hbsObj={
-        title:"Add a Plant"
+        title:"Add a Plant",
+        bodyClass: ""
     }
         res.render("addPlant", hbsObj)
     });

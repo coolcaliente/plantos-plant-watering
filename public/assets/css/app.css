@@ -6456,11 +6456,9 @@ h2 {
   font-weight: 700;
   font-size: 1.5rem; }
 
-.red {
-  background-color: red; }
-
-.green {
-  background-color: green; }
-
-.blue {
-  background-color: blue; }
+.signInBody {
+  background-image: url("../img/houseplant.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
