@@ -1,30 +1,34 @@
-<h1>My Plants</h1>
+<div class="container">
 
-<div class="container" id="myPlantsPage" style="display:flex; flex-direction:row;flex-wrap:wrap;justify-content:center">
-  {{!-- this container needs to be display:flex;
-  flex-direction:row;
-  flex-wrap:wrap;
-  justify-content:center; --}}
+  <div class="row my-5">
 
-<!-- Happy Msg Modal -->
-<div class="modal fade" id="happyMsgModal" tabindex="-1" role="dialog" aria-labelledby="happy-msg-modal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      {{!-- <div class="modal-header"> --}}
-        <h5 class="modal-title" id="happy-msg-modal">You're doing great!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      {{!-- </div> --}}
+    <div class="col-md-4">
+      <h1 class="">My Plants</h1>
+      <hr>
+      <p>After watering your plant, select “Water Now” to mark it as “Watered”.</p>
+
+      <button id="addPlantBtn" type="button" class="btn btn-outline-dark px-6 mt-3">Add a Plant</button>
     </div>
+
+    <div id="myPlantsPage" class="col">
+      <!-- Happy Msg Modal -->
+      <div class="modal fade" id="happyMsgModal" tabindex="-1" role="dialog" aria-labelledby="happy-msg-modal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            {{!--
+            <div class="modal-header"> --}}
+              <h5 class="modal-title" id="happy-msg-modal">You're doing great!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              {{!-- </div> --}}
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
   </div>
+
 </div>
-
-
-</div>  
-
-<button id="addPlantBtn" type="button" class="btn btn-primary btn-lg">Add a Plant</button>
-
-
-  {{!-- dymanically add plants here from form info --}}
-  {{!-- add wateredIt! button to plant card --}}
