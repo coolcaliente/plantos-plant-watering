@@ -9,8 +9,19 @@ $(document).ready(function() {
     //else take to sign-up page
   });
   //cancelAddPlantBtn
-  $("#cancelAddPlantBtn").on("click", function(){
+  $("#cancelAddPlantBtn").on("click", function(e){
+    e.preventDefault();
     window.location.href="/myPlants"
+  });
+
+  $("#loginPage").on("click", function(e){
+    e.preventDefault();
+    window.location.href="/login"
+  });
+
+  $("#signUpBtn").on("click", function(e){
+    e.preventDefault();
+    window.location.href="/signup"
   });
 
   $("#submitPlant").on("click", function(e){
