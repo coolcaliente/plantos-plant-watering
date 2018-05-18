@@ -11,7 +11,11 @@ $(document).ready(function() {
     $(this).attr("data-target", "#happyMsgModal");
     $(this).text("Watered");
     //need to remove these classes later
-    //data-toggle="modal" data-target="#exampleModal">    
+    //data-toggle="modal" data-target="#exampleModal"> 
+    
+    var t = 4;
+    $("#congratsMsgModal").modal(t);
+
 
     //update Plant.last_watered_date to today using ajax call
   });
@@ -49,7 +53,8 @@ $(document).ready(function() {
       else {
         var add = parseInt(data.lwd1) + parseInt(data.lwd2) + parseInt(data.lwd3) + parseInt(data.lwd4);
         newLastWatered = add / 4;
-        //congrats modal??
+        //congrats modal on myPlants page
+        $("#congratsMsgModal").modal();
       }
 
       //post (for first time) lwd1, 2, 3, or 4 to lastwatered table

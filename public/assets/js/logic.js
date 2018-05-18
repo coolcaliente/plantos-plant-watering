@@ -37,7 +37,7 @@ $(document).ready(function () {
         newLine.addClass("card-text");
 
         var newButton = $("<a>");
-        newButton.addClass("btn btn-primary waterBtn");
+        newButton.addClass("btn btn-primary");
         newButton.attr("id", data[i].id);
 
 
