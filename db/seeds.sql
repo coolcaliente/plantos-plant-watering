@@ -12,7 +12,7 @@ VALUES ('William', 'william@william.com', 'password', 0, 0);
 
 SELECT * FROM users;
 
-INSERT INTO lastwatereds (last_watered_date, createdAt, updatedAt) 
-VALUES ('2018-05-16', 0, 0);
+INSERT INTO lastwatereds (lwd1, lwd2, lwd3, lwd4, createdAt, updatedAt, userId, PlantId) 
+VALUES ('2018-05-16', 0, 0, 0, 0, 0, 1, 1);
 
 SELECT * FROM lastwatereds;
