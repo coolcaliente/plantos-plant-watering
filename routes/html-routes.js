@@ -8,7 +8,8 @@ module.exports = function(app) {
 
     app.get("/", function(req, res) {
         var hbsObj={
-            title:"LogIn"
+            title:"LogIn",
+            bodyClass: "signInBody"
         }
         res.render("login", hbsObj)
     });
@@ -19,12 +20,13 @@ module.exports = function(app) {
         }
         res.render("login", hbsObj)
     });
+
  
     //app.get('/signup', authController.signup);
      
     app.get("/signup", function(req, res) {
         var hbsObj={
-            title:"signup"
+            title:"signup",
         }
         res.render("signup", hbsObj)
     });
@@ -34,14 +36,16 @@ module.exports = function(app) {
     //myPlants = home page
     app.get("/myPlants", function(req, res) {
         var hbsObj={
-            title:"My Plants"
+            title:"My Plants",
+            bodyClass: ""
         }
         res.render("myPlants", hbsObj)
     });
 
     app.get("/addPlant", function(req, res) {
         var hbsObj={
-        title:"Add a Plant"
+        title:"Add a Plant",
+        bodyClass: ""
     }
         res.render("addPlant", hbsObj)
     });
@@ -53,6 +57,7 @@ module.exports = function(app) {
         res.render("about", hbsObj)
     });
 
+  
     
       // Here we've add our isAuthenticated middleware to this route.
       // If a user who is not logged in tries to access this route they will be redirected to the signup page
