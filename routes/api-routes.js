@@ -6,7 +6,9 @@ module.exports = function (app) {
 
 // GET route for all plants
 app.get("/api/plants/", function (req, res) {
-    db.Plant.findAll({})
+    db.Plant.findAll({
+        include: [db.lastWatered]
+    })
     .then(function(dbPlant) {
         res.json(dbPlant);
         console.log("app.get");
@@ -14,16 +16,16 @@ app.get("/api/plants/", function (req, res) {
 });
 
 // GET route by category
-app.get("api/plants/category/:category", function (req, res) {
-    db.Plant.findAll({
-        where: {
-            category: req.params.category
-        }
-    })
-    .then(function(dbPlant){
-        res.json(dbPlant);
-    });
-});
+// app.get("api/plants/category/:category", function (req, res) {
+//     db.Plant.findAll({
+//         where: {
+//             category: req.params.category
+//         }
+//     })
+//     .then(function(dbPlant){
+//         res.json(dbPlant);
+//     });
+// });
 
 // GET route for specific plant
 app.get("/api/plants/:id", function(req, res) {

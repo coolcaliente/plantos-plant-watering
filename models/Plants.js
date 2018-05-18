@@ -48,11 +48,12 @@ module.exports = function (sequelize, DataTypes) {
         
 
         Plant.belongsToMany(models.User, {
-            foreignKey: {
-                allowNull: false
+            foreignKey:  {
+                allowNull: true
             },
             through: "plantUser"
         });
+        Plant.hasMany(models.lastWatered)
     };
 
     return Plant;
