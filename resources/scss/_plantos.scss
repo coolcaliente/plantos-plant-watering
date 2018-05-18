@@ -29,10 +29,22 @@ h2 {
     font-size: 1.5rem;
 }
 
-body {
-    background-image: url("../img/houseplant.jpg");
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+// body {
+//     background-image: url("../img/houseplant.jpg");
+//     -webkit-background-size: cover;
+//     -moz-background-size: cover;
+//     -o-background-size: cover;
+//     background-size: cover;
+// }
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
 }
