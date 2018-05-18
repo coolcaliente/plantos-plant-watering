@@ -21,9 +21,11 @@ $(document).ready(function() {
   //if user clicks "water now" button, it changes to "watered"
   $(document).on("click", ".waterNowBtn", function () {
     $(this).removeClass("waterNowBtn");
+    
     $(this).addClass("feelGoodMsg");//need this?
     $(this).attr("data-toggle", "modal");
     $(this).attr("data-target", "#happyMsgModal");
+
     $(this).text("Watered");
     //need to remove these classes later
     //data-toggle="modal" data-target="#exampleModal">    
