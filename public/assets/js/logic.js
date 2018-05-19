@@ -1,5 +1,3 @@
-// var moment = require("moment");
-
 $(document).ready(function () {
   getPlants();//renders plant cards on the page
 
@@ -41,9 +39,31 @@ $(document).ready(function () {
         newButton.addClass("btn btn-primary");
         newButton.attr("id", data[i].id);
 
+        console.log(waterData[i].length);
 
-        console.log(waterData[i].last_watered_date);
+        //if there's no lwd and an int-->water it msg
+        if (waterData[i].length === 0 && data[i].plant_water_int !== null){
 
+        }
+
+        //if there's 1 or more lwd and an int-->calc next date based on lwd and int-->if date diff =0 water now msg, if more than 0 water in ? days msg
+        else if (waterData[i].length > 0 && data[i].plant_water_int !== null){
+          waterData[i]
+        }
+
+        //if there's 1, 2, 3, lwd and no int-->calculating cycle msg
+        else if (waterData[i].length <= 3 && data[i].plant_water_int === null){
+          
+        }
+
+        //if there's 4 lwd and no int-->calc int, send int, then choose option from above
+        else if (waterData[i].length = 4 && data[i].plant_water_int === null){
+
+        }
+
+        else {
+          console.log("error");
+        };
 
         //if there's a last watered date...
         if (waterData[i].last_watered_date !== null) {
