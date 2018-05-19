@@ -26,6 +26,18 @@ module.exports = function (app) {
     //     });
     // });
 
+$(document).ready(function () {
+    getPlants();
+    function getPlants() {
+        $.get("/api/Master_Plants", function (data) {
+            for (var i = 0; i < data.length; i++) {
+                var newOption = $("<option>");
+                newOption.attr("id", data[i].plant_common_name);
+            }
+        })
+    }
+});
+
     // GET route for specific plant
     app.get("/api/plants/:id", function (req, res) {
         console.log(req.params.id);
