@@ -13,16 +13,22 @@ $(document).ready(function() {
     //need to remove these classes later
     //data-toggle="modal" data-target="#exampleModal"> 
 
-    // console.log(moment().format("YYYY DD MM"));
-    var newLastWatered=moment().format("YYYY DD MM");
+    var newLastWatered=moment().format("YYYY-MM-DD");
     var id = this.id;
-    
-    //update Plant.last_watered_date to today using ajax call
-    $.ajax("/api/plants/:"+id,{
-      type:"PUT",
-      data:newLastWatered
-    })
+    var newPut={
+      id:id,
+      last_watered_date:newLastWatered
+    };
+    updatePlantLwd(newPut);
   });
+
+  function updatePlantLwd(newPut){
+    //update Plant.last_watered_date to today using ajax call
+    $.ajax("/api/plants/"+newPut.id,{
+      type:"PUT",
+      data:newPut
+    })
+  }
 
   //clicking "figuring cycle" button starts calculating and sends msg with directions
   $(document).on("click", ".figuringCycle", function () {
