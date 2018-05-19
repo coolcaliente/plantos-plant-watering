@@ -13,9 +13,19 @@ app.get("/api/plants/", function (req, res) {
     });
 });
 
-app.get("api/masterPlants/")
+$(document).ready(function () {
+    getPlants();
+    function getPlants() {
+        $.get("/api/Master_Plants", function (data) {
+            for (var i = 0; i < data.length; i++) {
+                var newOption = $("<option>");
+                newOption.attr("id", data[i].plant_common_name);
+            }
+        })
+    }
+});
 
-// GET route by category
+
 app.get("api/plants/category/:category", function (req, res) {
     db.Plant.findAll({
         where: {
