@@ -23,12 +23,12 @@ $(document).ready(function() {
   });
 
   function updatePlantLwd(newPut){
-    //update Plant.last_watered_date to today using ajax call
-    $.ajax("/api/plants/"+newPut.id,{
+    //update lastWatered.last_watered_date to today using ajax call
+    $.ajax("/api/lastWatered/"+newPut.id,{
       type:"PUT",
       data:newPut
     })
-  }
+  };
 
   //clicking "figuring cycle" button starts calculating and sends msg with directions
   $(document).on("click", ".figuringCycle", function () {
@@ -37,7 +37,7 @@ $(document).ready(function() {
       console.log(data);
       var date = moment();
       var newWaterDate; //for lastwatered table
-      var newLastWatered; // for plant table
+      var newWaterInt; // for plant table
 
       //if there's no lwd1, record lwd1
       if (data.lwd1 === null){
@@ -63,7 +63,12 @@ $(document).ready(function() {
       //if lwd4 is filled, calculate average, change btn
       else {
         var add = parseInt(data.lwd1) + parseInt(data.lwd2) + parseInt(data.lwd3) + parseInt(data.lwd4);
-        newLastWatered = Math.round(add / 4);
+        newWaterInt = Math.round(add / 4);
+        var newPut={
+          id:this.id,
+          plant_water_int:newWaterInt
+        };
+        updateWaterInt(newPut);
 
         //congrats modal on myPlants page
         $("#congrats-msg-modal").text("Congrats! You've watered your plant four times. We've calculated this plant needs to be watered every " + newLastWatered + " days.");
@@ -74,10 +79,13 @@ $(document).ready(function() {
 
 
         //update last_watered_date in plant table
-        $.ajax("/api/plants",{
-          type:"PUT",
-          data:newLastWatered
-        })
+        function updateWaterInt(newPut){
+          $.ajax("/api/plants"+newPut.id,{
+            type:"PUT",
+            data:newPut
+          })
+        };
+
       }
 
       //post (for first time) lwd1, 2, 3, or 4 to lastwatered table
