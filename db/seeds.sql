@@ -22,4 +22,4 @@ VALUES ('2018-05-4', null, 1, 1),
 ('2018-05-15', null, 1, 3),
 ('2018-05-16', null, 1, 3),
 
-SELECT * FROM lastwatereds;
+-- SELECT * FROM lastwatereds;

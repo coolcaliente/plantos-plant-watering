@@ -41,10 +41,21 @@ module.exports = function (app) {
 
     // GET route for all lastWatered data
     app.get("/api/lastWatered/", function (req, res) {
-        db.lastWatered.findAll({
+        db.User.findOne({
+            include: [{
+                model: db.Plant,
+                    include: [{
+                        model: db.lastWatered,
+                        limit: 4,
+                        order: [['createdAt', 'DESC']]
+                    }]
+            }],
+            where: {
+               id: 1
+            }
         })
-            .then(function (dbLastWatered) {
-                res.json(dbLastWatered);
+            .then(function (wateredData) {
+                res.json(wateredData);
                 console.log("app.get");
             });
     });
