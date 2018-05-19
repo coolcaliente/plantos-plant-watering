@@ -35,7 +35,9 @@ module.exports = function(sequelize, DataTypes) {
         },
         through: "plantUser"
       });
-      User.hasMany(models.lastWatered)
+      User.hasMany(models.lastWatered);
+      User.hasMany(models.Image)
+      User.hasMany(models.Master_Plant)
     };
 
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database

@@ -7,7 +7,7 @@ module.exports = function (app) {
     // GET route for all plants
     app.get("/api/plants/", function (req, res) {
         db.Plant.findAll({
-            include: [db.lastWatered]
+            // include: [db.lastWatered]
         })
             .then(function (dbPlant) {
                 res.json(dbPlant);
@@ -41,10 +41,21 @@ module.exports = function (app) {
 
     // GET route for all lastWatered data
     app.get("/api/lastWatered/", function (req, res) {
-        db.lastWatered.findAll({
+        db.User.findOne({
+            include: [{
+                model: db.Plant,
+                    include: [{
+                        model: db.lastWatered,
+                        limit: 4,
+                        order: [['createdAt', 'DESC']]
+                    }]
+            }],
+            where: {
+               id: 1
+            }
         })
-            .then(function (dbLastWatered) {
-                res.json(dbLastWatered);
+            .then(function (wateredData) {
+                res.json(wateredData);
                 console.log("app.get");
             });
     });
@@ -63,6 +74,7 @@ module.exports = function (app) {
             });
     });
 
+//----------------------------------------------------
     // POST route is working
     app.post("/api/plants", function (req, res) {
 
@@ -93,6 +105,17 @@ module.exports = function (app) {
         });
     });
 
+    // POST lastWatered
+    // app.post("/api/lastWatered/Post", function (req, res) {
+    //     db.lastWatered.post({
+    //     })
+    //     .then(function (dbLastWatered) {
+    //         res.json(dbLastWatered);
+    //     });
+    // });
+
+
+    //----------------------------------------------------
     // PUT - this updates lwd1, 2, 3, 4 on lastwatered table
     app.put("/api/lastWatered/Update", function (req, res) {
         db.lastWatered.update({
@@ -101,13 +124,16 @@ module.exports = function (app) {
             res.json(dbLastWatered);
         });
     });
-
-    // PUT route - updates the last_watered_date
-    app.put("/api/plants", function (req, res) {
-        db.Plant.update(req.body,
+    
+    // PUT route - updates the last_watered_date, lwd1,2,3,4, plant_water_int???? all in one or separate???
+    app.put("/api/lastWatered/:id", function (req, res) {
+        db.Plant.update(
+            {
+                last_watered_date:req.body.last_watered_date
+            },       
             {
                 where: {
-                    id: req.body.id
+                    id: req.params.id
                 }
             })
             .then(function (dbPlant) {
@@ -115,6 +141,7 @@ module.exports = function (app) {
             });
     });
 
+    //--------------------------------------------------
     // DELETE route
     app.delete("api/plants/:id", function (req, res) {
         db.Plant.destroy({
@@ -127,6 +154,7 @@ module.exports = function (app) {
             });
     });
 
+    //-----------------------------------------------
     // Using the passport.authenticate middleware with our local strategy.
     // If the user has valid login credentials, send them to the members page.
     // Otherwise the user will be sent an error
