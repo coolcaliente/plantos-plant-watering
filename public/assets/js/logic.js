@@ -39,7 +39,10 @@ $(document).ready(function () {
         newButton.addClass("btn btn-primary");
         newButton.attr("id", data[i].id);
 
-        console.log(waterData[i].length);
+        // console.log(waterData[0]);
+        console.log(waterData);
+        console.log(waterData.Plants.lastWatereds);
+        console.log(data[i]);
 
         //if there's no lwd and an int-->water it msg
         if (waterData[i].length === 0 && data[i].plant_water_int !== null){

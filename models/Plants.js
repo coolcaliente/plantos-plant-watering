@@ -57,10 +57,15 @@ module.exports = function (sequelize, DataTypes) {
                    imageable: "Plant"
                }
             },
-            constranints: false
+            constraints: false
                 
         });
-        Plant.belongsTo(models.Master_Plant);
+        Plant.belongsTo(models.Master_Plant,
+        {foreignKey: {
+            allowNull: true,
+        },
+        constraints: false
+    });
     };
 
     return Plant;
