@@ -2,8 +2,8 @@
   "development": {
     "username": "root",
     "password": "password",
-    "database": "127.0.0.1",
-    "host": "3306",
+    "database": "hngplants_db",
+    "host": "33127.0.0.106",
     "dialect": "mysql"
   },
   "test": {
