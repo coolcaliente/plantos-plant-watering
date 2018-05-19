@@ -31,7 +31,7 @@ require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 //this functionality is in config
-var mysql = require("mysql");
+// var mysql = require("mysql");
 
 // var connection = mysql.createConnection({
 //     host: "localhost",

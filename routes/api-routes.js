@@ -13,6 +13,8 @@ app.get("/api/plants/", function (req, res) {
     });
 });
 
+app.get("api/masterPlants/")
+
 // GET route by category
 app.get("api/plants/category/:category", function (req, res) {
     db.Plant.findAll({
