@@ -13,8 +13,12 @@ $(document).ready(function() {
     //need to remove these classes later
     //data-toggle="modal" data-target="#exampleModal"> 
 
+    // console.log(moment().format("YYYY DD MM"));
+    var newLastWatered=moment().format("YYYY DD MM");
+    var id = this.id;
+    
     //update Plant.last_watered_date to today using ajax call
-    $.ajax("/api/lastWatered/:id",{
+    $.ajax("/api/plants/:"+id,{
       type:"PUT",
       data:newLastWatered
     })
@@ -60,6 +64,7 @@ $(document).ready(function() {
         $("#congratsMsgModal").modal();
 
         //put lwd1, 2, 3, 4 to null in lastwatered table
+
 
 
         //update last_watered_date in plant table
