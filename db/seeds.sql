@@ -19,6 +19,7 @@ VALUES ('Areca Palm/ Butterfly Palm', 'Chrysalidocarpus lutescense', 'Water dail
 ('Angel Trumpet Plant', 'Brugmansia', 'Water thoroughly spring through fall. Cut back when growth has slowed.', 1, fasle, 2, 0, 0),
 ('Begonia', 'Begonia x hiemalis', 'Keep soil evenly moist, but not soggy. Allow top inch of soil to dry between waterings', 1, false, 1, 0, 0),
 ('Jade Plant', 'Crassula Ovata', 'Allow water to slightly dry out between waterings. Dropped leaves or brown spots on leaves indicate the plant needs more water.', 1, false, 1, 0, 0),
+('Tulips', 'Tulipa spp', 'Keep soil lightly moist, check soil often', 1, false, 1, 0, 0),
 
 SELECT * FROM plants;
 
