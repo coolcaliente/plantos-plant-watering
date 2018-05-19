@@ -70,3 +70,57 @@
   <button class="submit" id="submitPlant" type="submit">Submit</button>
 
 </form>
+<div class="container">
+
+  <div class="row mt-5">
+    <div class="col">
+
+      <h1>Add a Plant</h1>
+      <hr>
+      <p>Must fill in at least one of the watering needs fields. If you include text you'll need to click the WateredIt! button
+        at least three times to establish a pattern for the app to take over.</p>
+
+      <form id="addPlant" class="mb-5">
+
+        <div class="form-group">
+          <label for="commonName" class="uppercase">Common Name</label>
+          <input name="common-name" type="text" class="form-control" id="commonName" placeholder="Cat Palm Tree">
+        </div>
+
+        <div class="form-group">
+          <label for="scientificName" class="uppercase">Scientific Name</label>
+          <input name="scientific-name" type="text" class="form-control" id="scientificName" placeholder="Chamaedorea cataractarum">
+        </div>
+
+        <div class="form-group">
+          <label for="wateringNeedsText" class="uppercase">Watering Needs (text)</label>
+          <textarea name="watering-needs-text" type="text" class="form-control" rows="3" id="wateringNeedsText" placeholder="Keep the soil evenly moist, but not soggy."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="wateringNeedsInt" class="uppercase">Watering Needs (input how many days between waterings)</label>
+          <input name="watering-needs-int" type="text" class="form-control" id="wateringNeedsInt" placeholder="4"> {{!-- need to validate num --}}
+        </div>
+
+        <div class="form-group">
+          <label for="sunNeeds" class="uppercase">Sun Needs</label>
+          <select class="form-control" id="sunNeeds">
+            <option value="1">Full Sun</option>
+            <option value="2">Partial Sun</option>
+            <option value="3">Low Sun</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="petFriendly">Pet Friendly?</label>
+          <select class="form-control" id="petFriendly">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+        <button class="submit btn btn-outline-dark px-6 mt-3" id="submitPlant" type="submit">Submit</button>
+        <button class="btn btn-outline-dark px-6 mt-3" id="cancelAddPlantBtn">Cancel</button>
+
+      </form>
+    </div>
+  </div>

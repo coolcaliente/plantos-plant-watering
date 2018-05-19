@@ -1,40 +1,56 @@
-<div class="container leafBG">
-  <div class="row">
+<ul class="cb-slideshow">
+  <li>
+    <span>Image 01</span>
+  </li>
+  <li>
+    <span>Image 02</span>
+  </li>
+  <li>
+    <span>Image 03</span>
+  </li>
+  <li>
+    <span>Image 04</span>
+  </li>
+</ul>
+
+<div class="container">
+  <div class="row pt-6">
+
     <div class="col">
-      <h1 class="pt-6">Let's Get Started</h1>
+      <h1 class="">Let's Get Started</h1>
       <hr>
       <h2 class="pt-2">Be the Best Plantperson</h2>
       <p>Sign in to start a watering routine
         <br> for your favorite plants!</p>
-      <button type="button" class="btn btn-outline-dark px-5 mt-4">Login | Sign-up</button>
+      {{!--
+      <button id="signUpBtn" type="button" class="btn btn-outline-dark px-5 mt-4">
+        <span class="oi oi-plus"></span>Login | Sign-up</button> --}}
+    </div>
+
+    <div class="col  p-4 opacity">
+      <h2>Login Form</h2>
+      <form class="login">
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="uppercase mt-3">Email address</label>
+          <input type="email" class="form-control" id="email-input" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1" class="uppercase">Password</label>
+          <input type="password" class="form-control" id="password-input" placeholder="Password">
+        </div>
+
+        <button id="login-button" type="submit" class="btn btn-default">Login</button>
+      </form>
+      <br />
+      <p>Or sign up
+        <a href="/signup">here</a>
+      </p>
+
     </div>
   </div>
 </div>
 
-
 {{!--
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <h2>Login Form</h2>
-      <form class="login">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="email-input" placeholder="Email">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="password-input" placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-default">Login</button>
-      </form>
-      <br />
-      <p>Or sign up
-        <a href="./signup.handlebars">here</a>
-      </p>
-    </div>
-  </div>
-</div> --}} {{!--
 <form action="/login" method="post">
   <div>
     <label>Username:</label>

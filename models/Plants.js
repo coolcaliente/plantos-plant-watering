@@ -22,22 +22,16 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1]
             }
         },
-        //get error msg for below: Incorrect integer value
         plant_water_int: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            // allowNull: true
+            default: null
         },
         pet_friendly: {
             type: DataTypes.BOOLEAN
         },
         sun_placement: {
             type: DataTypes.INTEGER
-        },
-        last_watered_date: {
-            type: DataTypes.DATEONLY
-        },
-        image:{
-            type: DataTypes.BLOB('long')
         }
     });
 
@@ -47,11 +41,26 @@ module.exports = function (sequelize, DataTypes) {
         
 
         Plant.belongsToMany(models.User, {
-            foreignKey: {
-                allowNull: false
+            foreignKey:  {
+                name: "userID",
+                allowNull: true
             },
             through: "plantUser"
         });
+        Plant.hasMany(models.lastWatered);
+        Plant.belongsToMany(models.Image,{
+            foreignKey: "imageable_ID",
+            through:{
+               model: "ItemImage",
+               unique: false,
+               scope: {
+                   imageable: "Plant"
+               }
+            },
+            constranints: false
+                
+        });
+        Plant.belongsTo(models.Master_Plant);
     };
 
     return Plant;
