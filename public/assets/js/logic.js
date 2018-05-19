@@ -71,10 +71,12 @@ $(document).ready(function () {
             var d = data[i].plant_water_int - difference;
             if (d = 1) {
               newButton.text(d + " Day Left");
+              newButton.attr("days", d);
               newButton.addClass("changeCycleBtn");
             }
             else {
               newButton.text(d + " Days Left");
+              newButton.attr("days", d);
               newButton.addClass("changeCycleBtn");
             }
           }
