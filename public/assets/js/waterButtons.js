@@ -18,6 +18,10 @@ $(document).ready(function() {
 
 
     //update Plant.last_watered_date to today using ajax call
+    $.ajax("/api/lastWatered/:id",{
+      type:"PUT",
+      data:newLastWatered
+    })
   });
 
   //clicking "figuring cycle" button starts calculating and sends msg with directions
@@ -59,7 +63,7 @@ $(document).ready(function() {
 
       //post (for first time) lwd1, 2, 3, or 4 to lastwatered table
       function postdata(){
-        $.ajax("/api/lastWatered",{
+        $.ajax("/api/lastWatered/Update",{
           type:"POST",
           data:newWaterDate
         }).then(
