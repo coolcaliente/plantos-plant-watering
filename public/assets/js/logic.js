@@ -5,6 +5,7 @@ $(document).ready(function () {
 
   function getPlants() {
     $.get("/api/plants", function (data) {
+      $.get("/api/lastWatered", function(waterData){
 
       for (var i = 0; i < data.length; i++) {
         //adding bootstrap card
@@ -33,20 +34,19 @@ $(document).ready(function () {
         newTitle.addClass("card-title");
         newTitle.text(data[i].plant_common_name);
 
-        var newLine = $("<p>");
-        newLine.addClass("card-text");
+        // var newLine = $("<p>");
+        // newLine.addClass("card-text");
 
         var newButton = $("<a>");
         newButton.addClass("btn btn-primary");
         newButton.attr("id", data[i].id);
 
 
-        console.log(data[i].lastWatereds);
-        // console.log(data[i].lastWatereds);
+        console.log(waterData[i].last_watered_date);
 
 
         //if there's a last watered date...
-        if (data[i].last_watered_date !== null) {
+        if (waterData[i].last_watered_date !== null) {
           //calculate days btw current date and last watered
           // var lwd = data[i].last_watered_date; //keep this
           var lwd = moment("2018, 05, 10", "YYYY MM DD");//temp
@@ -62,13 +62,13 @@ $(document).ready(function () {
             newButton.attr("data-target", "#happyMsgModal");
           }
           //if it's been the required number of days (or more than), water it
-          else if (difference >= data[i].plant_water_int) {
+          else if (difference >= waterData[i].plant_water_int) {
             newButton.text("Water Now");
             newButton.addClass("waterNowBtn");
           }
           //otherwise figure out how many more days until watering
           else {
-            var d = data[i].plant_water_int - difference;
+            var d = waterData[i].plant_water_int - difference;
             if (d = 1) {
               newButton.text(d + " Day Left");
               newButton.attr("days", d);
@@ -82,19 +82,19 @@ $(document).ready(function () {
           }
         }
         //if there's no lwd and no water_int, start calculating it
-        else if(data[i].last_watered_date === null && data[i].plant_water_int === null){
-          newButton.text("Calculing watering cycle...");
+        else if(waterData[i].last_watered_date === null && waterData[i].plant_water_int === null){
+          newButton.text("Calculating watering cycle...");
           newButton.addClass("figuringCycle");
         }
         //if there's no lwd but there's a plant_water_int, calculate watering date with int
-        else if(data[i].last_watered_date === null && data[i].plant_water_int !== null){
+        else if(waterData[i].last_watered_date === null && waterData[i].plant_water_int !== null){
           newButton.text("Water Now");
           newButton.addClass("waterNowBtn");
           
         }
 
         newDiv2.append(newTitle);
-        newDiv2.append(newLine);
+        // newDiv2.append(newLine);
         newDiv2.append(newButton);
         newDiv.append(newImg);
         newDiv.append(newDiv2);
@@ -105,12 +105,15 @@ $(document).ready(function () {
         newImg.css("border-top", "20px");
         newImg.css("width", "100px");
         newDiv.css("text-align", "center");
+        newButton.css("color", "white");
         //... and here after scss styling
 
         $("#myPlantsPage").prepend(newDiv);
       }
 
     })
+  })
+
   }
 
 });

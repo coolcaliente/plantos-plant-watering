@@ -38,18 +38,31 @@ $(document).ready(function() {
       plant_water_text: $("#wateringNeedsText").val().trim(),
       sun_placement: $("#sunNeeds").val(),
       pet_friendly: $("#petFriendly").val(),
-      plant_water_int: waterInt,
+      // plant_water_int: waterInt,
       plant_scientific_name: $("#scientificName").val().trim() || null
     };
 
+    //ajax inside ajax??
     $.ajax("/api/plants", {
       type:"POST",
-      data:newPlant
-    }).then(
-      function(){
-        window.location.href = "/myPlants";
-      }
-    )
+      data:newPlant,
+      complete:function(){
+    // }).then(
+    //   function(){
+
+          $.ajax("/api/lastWatered", {
+            type:"POST",
+            data:waterInt
+          }).then(
+            function(){
+              window.location.href = "/myPlants";
+            }
+          ); //end second ajax
+
+      }//end complete
+    // );
+
   })
+});
 
 });

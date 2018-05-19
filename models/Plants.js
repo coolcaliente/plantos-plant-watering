@@ -23,20 +23,20 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         //get error msg for below: Incorrect integer value
-        plant_water_int: {
-            type: DataTypes.INTEGER,
-            // allowNull: true
-            default: null
-        },
+        // plant_water_int: {
+        //     type: DataTypes.INTEGER,
+        //     // allowNull: true
+        //     default: null
+        // },
         pet_friendly: {
             type: DataTypes.BOOLEAN
         },
         sun_placement: {
             type: DataTypes.INTEGER
         },
-        last_watered_date: {
-            type: DataTypes.DATEONLY
-        },
+        // last_watered_date: {
+        //     type: DataTypes.DATEONLY
+        // },
         image:{
             type: DataTypes.BLOB('long')
         }

@@ -23,8 +23,8 @@ $(document).ready(function() {
   });
 
   function updatePlantLwd(newPut){
-    //update Plant.last_watered_date to today using ajax call
-    $.ajax("/api/plants/"+newPut.id,{
+    //update lastWatered.last_watered_date to today using ajax call
+    $.ajax("/api/lastWatered/"+newPut.id,{
       type:"PUT",
       data:newPut
     })
