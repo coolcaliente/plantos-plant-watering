@@ -6469,3 +6469,14 @@ h2 {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
+
+.opacity {
+  background: #cccccc;
+  /* Fallback for older browsers without RGBA-support */
+  background: rgba(215, 241, 150, 0.7);
+  border-radius: 0.25rem; }
+
+.uppercase {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .8rem; }
