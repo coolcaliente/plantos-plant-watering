@@ -47,7 +47,7 @@ module.exports = function (sequelize, DataTypes) {
                    imageable: "Master_Plant"
                }
             },
-            constranints: false
+            constraints: false
                 
         });
     };
