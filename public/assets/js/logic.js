@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
   getPlants();//renders plant cards on the page
-
+//
   function getPlants() {
     $.get("/api/plants", function (data) {
 
