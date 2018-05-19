@@ -13,6 +13,14 @@ module.exports = function (sequelize, DataTypes) {
         },lwd4: {
             type: DataTypes.DATEONLY,
             allowNull: true
+        },
+        plant_water_int: {
+            type: DataTypes.INTEGER,
+            // allowNull: true
+            default: null
+        },
+        last_watered_date: {
+            type: DataTypes.DATEONLY
         }
     });
 
