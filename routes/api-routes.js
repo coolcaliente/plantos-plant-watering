@@ -103,8 +103,14 @@ module.exports = function (app) {
     });
 
     // PUT route - updates the last_watered_date
-    app.put("/api/plants", function (req, res) {
-        db.Plant.update(req.body,
+    app.put("/api/plants/:id", function (req, res) {
+        db.Plant.update(
+            {last_watered_date:req.body.newLastWatered},
+            // {id:req.body.id} )           
+            
+            
+            
+            // req.body,
             {
                 where: {
                     id: req.body.id

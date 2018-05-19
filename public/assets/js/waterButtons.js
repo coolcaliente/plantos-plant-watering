@@ -12,13 +12,13 @@ $(document).ready(function() {
     $(this).text("Watered");
     //need to remove these classes later
     //data-toggle="modal" data-target="#exampleModal"> 
+
+    // console.log(moment().format("YYYY DD MM"));
+    var newLastWatered=moment().format("YYYY DD MM");
+    var id = this.id;
     
-    var t = 4;
-    $("#congratsMsgModal").modal(t);
-
-
     //update Plant.last_watered_date to today using ajax call
-    $.ajax("/api/lastWatered/:id",{
+    $.ajax("/api/plants/:"+id,{
       type:"PUT",
       data:newLastWatered
     })
@@ -26,7 +26,7 @@ $(document).ready(function() {
 
   //clicking "figuring cycle" button starts calculating and sends msg with directions
   $(document).on("click", ".figuringCycle", function () {
-    console.log(this.id);
+    // console.log(this.id);
     $.get("/api/lastWatered/"+this.id, function(data){
       console.log(data);
       var date = moment();
@@ -36,55 +36,104 @@ $(document).ready(function() {
       //if there's no lwd1, record lwd1
       if (data.lwd1 === null){
         newWaterDate = {lwd1:date};
-        postdata();
+        // var c=1;
+        postdata(1);
       }
       //if lwd1 is filled, check lwd2 and record
       else if (data.lwd2 === null){
         newWaterDate = {lwd2:date};
-        postdata();
+        postdata(2);
       }
       //if lwd2 is filled, check lwd3 and record
       else if (data.lwd3 === null){
         newWaterDate = {lwd3:date};
-        postdata();
+        postdata(3);
       }
       //if lwd3 is filled, check lwd4 and record
       else if (data.lwd4 === null){
         newWaterDate = {lwd4:date};
-        postdata();
+        postdata(4);
       }
       //if lwd4 is filled, calculate average, change btn
       else {
         var add = parseInt(data.lwd1) + parseInt(data.lwd2) + parseInt(data.lwd3) + parseInt(data.lwd4);
-        newLastWatered = add / 4;
+        newLastWatered = Math.round(add / 4);
+
         //congrats modal on myPlants page
+        $("#congrats-msg-modal").text("Congrats! You've watered your plant four times. We've calculated this plant needs to be watered every " + newLastWatered + " days.");
         $("#congratsMsgModal").modal();
+
+        //put lwd1, 2, 3, 4 to null in lastwatered table
+
+
+
+        //update last_watered_date in plant table
+        $.ajax("/api/plants",{
+          type:"PUT",
+          data:newLastWatered
+        })
       }
 
       //post (for first time) lwd1, 2, 3, or 4 to lastwatered table
-      function postdata(){
+      function postdata(c){
         $.ajax("/api/lastWatered/Update",{
           type:"POST",
           data:newWaterDate
         }).then(
           function(){
-            //pop up modal??
+            console.log("here");
+            console.log(c);
+            $("#congratsMsgModal").modal();
           }
         );        
       };
 
-      //update last_watered_date in plant table
-      $.ajax("/api/plants",{
-        type:"PUT",
-        data:newLastWatered
-      })
     });
   });
 
-  //clicking "x days left" gives option to restart the water cycle or change the cycle (if they've miscalculated how much water is needed
+  //clicking "x days left" gives option to restart the water cycle, recalcuate the days, or delete the plant
   $(document).on("click", "changeCycleBtn", function () {
-    //modal "You have x days left. Option1: Do you want to water it now and restart the cycle? Option2: Delete this plant Option3: Do you want to recalculate the water cycle? Or cancel?" 
-    
+    console.log(this);
+
+    $("#congrats-msg-modal").text("You have " + this.days + " left.<br>Want some options?<br>");
+
+    var newBtn = $("<button>");
+    newBtn.text("Do you want to water it now and restart the cycle?");
+    newBtn.attr("id", this.id);
+    newBtn.addClass("restartBtn btn btn-outline-dark px-6 mt-3");
+
+    var newBtn2 = $("<button>");
+    newBtn2.text("Delete this plant from your My Plants page?");
+    newBtn2.attr("id", this.id);
+    newBtn2.addClass("deleteBtn btn btn-outline-dark px-6 mt-3");
+
+    var newBtn3 = $("<button>");
+    newBtn3.text("Do you want to recalculate the amount of days between waterings?");
+    newBtn3.attr("id", this.id);
+    newBtn3.addClass("recalculateBtn btn btn-outline-dark px-6 mt-3");
+
+    $("#change-msg-modal").append(newBtn, newBtn2, newBtn3);
+
+    $("#changeMsgModal").modal();
   });
 
-});
+  $(document).on("click", "#restartBtn", function () {
+    console.log(this);
+    $().removeClass(".restartBtn");
+    $().addClass(".waterNowBtn");
+    //send ajax call to change last watered date
+    //change text to water now
+  });
+
+  //delete the plant from the user's app
+  $(document).on("click", ".deleteBtn", function () {
+    $.ajax("")
+  });
+
+  //recalculate the days between waterings
+  $(document).on("click", ".recalculateBtn", function () {
+    $().removeClass(".recalculateBtn");
+    $().addClass(".figuringCycle");
+  });
+
+});//end doc.ready
