@@ -31,7 +31,9 @@ module.exports = function(sequelize, DataTypes) {
         },
         through: "plantUser"
       });
-      User.hasMany(models.lastWatered)
+      User.hasMany(models.lastWatered);
+      User.hasMany(models.Image)
+      User.hasMany(models.Master_Plant)
     };
      return User;
 

@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-    var Plant = sequelize.define("Plant", {
-        plant_common_name: {
+    var Master_Plant = sequelize.define("Master_Plant", {
+        common_name: {
             type: DataTypes.STRING,
             allowNull: true,
             default: ""
@@ -8,21 +8,21 @@ module.exports = function (sequelize, DataTypes) {
             //     len: [1]
             // }
         },
-        plant_scientific_name: {
+        scientific_name: {
             type: DataTypes.STRING,
             // allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        plant_water_text: {
+        water_text: {
             type: DataTypes.TEXT("long"),
             // allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        plant_water_int: {
+        water_int: {
             type: DataTypes.INTEGER,
             // allowNull: true
             default: null
@@ -34,34 +34,23 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER
         }
     });
+    Master_Plant.associate = function (models) {
 
-    Plant.associate = function (models) {
-        // console.log(models.userPlants);
-        console.log(models.User);
-        
-
-        Plant.belongsToMany(models.User, {
-            foreignKey:  {
-                name: "userID",
-                allowNull: true
-            },
-            through: "plantUser"
-        });
-        Plant.hasMany(models.lastWatered);
-        Plant.belongsToMany(models.Image,{
+        Master_Plant.belongsTo(models.User);
+        Master_Plant.hasMany(models.Plant);
+        Master_Plant.belongsToMany(models.Image,{
             foreignKey: "imageable_ID",
             through:{
                model: "ItemImage",
                unique: false,
                scope: {
-                   imageable: "Plant"
+                   imageable: "Master_Plant"
                }
             },
             constranints: false
                 
         });
-        Plant.belongsTo(models.Master_Plant);
     };
 
-    return Plant;
-};
+    return Master_Plant;
+}; 
