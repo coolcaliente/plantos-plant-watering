@@ -26,6 +26,18 @@ module.exports = function (app) {
     //     });
     // });
 
+// $(document).ready(function () {
+//     getPlants();
+//     function getPlants() {
+//         $.get("/api/Master_Plant", function (data) {
+//             for (var i = 0; i < data.length; i++) {
+//                 var newOption = $("<option>");
+//                 newOption.attr("id", data[i].plant_common_name);
+//             }
+//         })
+//     }
+// });
+
     // GET route for specific plant
     app.get("/api/plants/:id", function (req, res) {
         console.log(req.params.id);
@@ -162,7 +174,8 @@ module.exports = function (app) {
         // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
         // So we're sending the user back the route to the members page because the redirect will happen on the front end
         // They won't get this or even be able to access this page if they aren't authed
-        res.json("/members");
+        console.log ("post api login  route working!!");
+        res.json("/myPlants");
     });
 
     // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to

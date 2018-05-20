@@ -66,6 +66,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         constraints: false
     });
+
     };
 
     return Plant;
