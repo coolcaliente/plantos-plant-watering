@@ -63,7 +63,7 @@ module.exports = function (app) {
                     }]
             }],
             where: {
-               id: 1
+               id: userid
             }
         })
             .then(function (wateredData) {

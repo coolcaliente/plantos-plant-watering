@@ -64,8 +64,9 @@ module.exports = function (sequelize, DataTypes) {
         {foreignKey: {
             allowNull: true,
         },
-            contraints: false
-        });
+        constraints: false
+    });
+
     };
 
     return Plant;
