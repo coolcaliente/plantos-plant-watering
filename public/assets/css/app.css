@@ -6469,6 +6469,10 @@ h3 {
   font-weight: 700;
   font-size: 1rem; }
 
+h4 {
+  font-weight: 700;
+  font-size: 1.5rem; }
+
 .signInBody {
   background-image: url("../img/succulents.jpg");
   -webkit-background-size: cover;
@@ -6510,6 +6514,23 @@ h3 {
 .card-img-top {
   height: 12rem;
   object-fit: cover; }
+
+.modal-header {
+  border-bottom: none; }
+
+.modal-footer {
+  border-top: none;
+  background-color: white; }
+
+.modal-content {
+  background-image: url("../img/greenpattern.svg"); }
+
+.wrap {
+  margin: 2rem;
+  background-color: white; }
+
+.white {
+  background-color: white; }
 
 .cb-slideshow,
 .cb-slideshow:after {
