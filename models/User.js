@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
       // Associating User with Plants
       User.belongsToMany(models.Plant, {
         foreignKey: {
-          name: 'plantID',
+          name: 'userID',
           allowNull: true
         },
         through: "plantUser"
