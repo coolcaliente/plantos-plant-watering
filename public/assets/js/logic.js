@@ -9,11 +9,11 @@ $(document).ready(function () {
         //adding bootstrap card
         var newDiv = $("<div>");
         newDiv.addClass("card");
-        newDiv.css("width", "18rem");
+        // newDiv.css("width", "18rem");
         newDiv.attr("id", data[i].id);
 
         var newImg = $("<img>");
-        newImg.addClass("card-img-top mx-auto");
+        newImg.addClass("card-img-top");
         newImg.attr("alt", data[i].plant_common_name);
 
         //use this after images in db
@@ -28,15 +28,16 @@ $(document).ready(function () {
         var newDiv2 = $("<div>");
         newDiv2.addClass("card-body");
 
-        var newTitle = $("<h5>");
-        newTitle.addClass("card-title");
+        var newTitle = $("<h3>");
+        newTitle.addClass("card-title text-truncate");
         newTitle.text(data[i].plant_common_name);
 
         // var newLine = $("<p>");
         // newLine.addClass("card-text");
 
-        var newButton = $("<a>");
-        newButton.addClass("btn btn-primary");
+        // var newButton = $("<a>");
+        var newButton = $("<button>");
+        newButton.addClass("btn btn-primary btn-block");
         newButton.attr("id", data[i].id);
 
         var length = waterData.Plants[0].lastWatereds.length;
