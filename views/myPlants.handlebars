@@ -2,64 +2,82 @@
 
   <div class="row my-5">
 
-    <div class="col-md-4">
-      <h1 class="">My Plants</h1>
+    <div class="col-md-4 text-sm-center text-md-left">
+      <h1>My Plants</h1>
       <hr>
-      <p>After watering your plant, select “Water Now” to mark it as “Watered”.</p>
+      <p class="pt-4">Press the "Water Now" button after watering your plant to mark it as watered.</p>
 
-      <button id="addPlantBtn" type="button" class="btn btn-outline-dark px-6 mt-3">Add a Plant</button>
+      <button id="addPlantBtn" type="button" class="btn btn-outline-dark btn-block">Add a Plant</button>
     </div>
 
-    <div id="myPlantsPage" class="col">
+    <div class="col mt-sm-5 mt-md-0">
+      {{!-- this was the div the 
+      <div id="myPlantsPage" class="col mt-sm-5 mt-md-0"> --}}
 
-      <!-- Happy Msg Modal -->
-      <div class="modal fade" id="happyMsgModal" tabindex="-1" role="dialog" aria-labelledby="happy-msg-modal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            {{!--
-            <div class="modal-header"> --}}
-              <h5 class="modal-title" id="happy-msg-modal">You're doing great!</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              {{!-- </div> --}}
+        <div id="myPlantsPage" class="row ml-md-3">
+
+
+          {{!-- <div class="card">
+            <img class="card-img-top" src="../assets/img/leafplant.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title text-truncate">Card title that is kind of long</h3>
+              <button class="btn btn-primary btn-block">33 Days Left</button>
+            </div>
+          </div> --}}
+
+
+        </div>
+
+
+
+        <!-- Happy Msg Modal -->
+        <div class="modal fade" id="happyMsgModal" tabindex="-1" role="dialog" aria-labelledby="happy-msg-modal" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              {{!--
+              <div class="modal-header"> --}}
+                <h5 class="modal-title" id="happy-msg-modal">You're doing great!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                {{!-- </div> --}}
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Congrats Msg Modal -->
-      <div class="modal fade" id="congratsMsgModal" tabindex="-1" role="dialog" aria-labelledby="congrats-msg-modal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            {{!--
-            <div class="modal-header"> --}}
-              <h5 class="modal-title" id="congrats-msg-modal"></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              {{!-- </div> --}}
+        <!-- Congrats Msg Modal -->
+        <div class="modal fade" id="congratsMsgModal" tabindex="-1" role="dialog" aria-labelledby="congrats-msg-modal" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              {{!--
+              <div class="modal-header"> --}}
+                <h5 class="modal-title" id="congrats-msg-modal"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                {{!-- </div> --}}
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Change Msg Modal -->
-      <div class="modal fade" id="changeMsgModal" tabindex="-1" role="dialog" aria-labelledby="change-msg-modal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            {{!--
-            <div class="modal-header"> --}}
-              <h5 class="modal-title" id="change-msg-modal">
-              </h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              {{!-- </div> --}}
+        <!-- Change Msg Modal -->
+        <div class="modal fade" id="changeMsgModal" tabindex="-1" role="dialog" aria-labelledby="change-msg-modal" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              {{!--
+              <div class="modal-header"> --}}
+                <h5 class="modal-title" id="change-msg-modal">
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                {{!-- </div> --}}
+            </div>
           </div>
         </div>
+
       </div>
 
     </div>
 
   </div>
-
-</div>

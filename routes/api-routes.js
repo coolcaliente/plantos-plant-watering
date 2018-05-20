@@ -26,17 +26,17 @@ module.exports = function (app) {
     //     });
     // });
 
-$(document).ready(function () {
-    getPlants();
-    function getPlants() {
-        $.get("/api/Master_Plant", function (data) {
-            for (var i = 0; i < data.length; i++) {
-                var newOption = $("<option>");
-                newOption.attr("id", data[i].plant_common_name);
-            }
-        })
-    }
-});
+// $(document).ready(function () {
+//     getPlants();
+//     function getPlants() {
+//         $.get("/api/Master_Plant", function (data) {
+//             for (var i = 0; i < data.length; i++) {
+//                 var newOption = $("<option>");
+//                 newOption.attr("id", data[i].plant_common_name);
+//             }
+//         })
+//     }
+// });
 
     // GET route for specific plant
     app.get("/api/plants/:id", function (req, res) {
@@ -52,7 +52,7 @@ $(document).ready(function () {
     });
 
     // GET route for all lastWatered data
-    app.get("/api/lastWatered/", function (req, res) {
+    app.get("/api/lastWatered/:Users.id", function (req, res) {
         db.User.findOne({
             include: [{
                 model: db.Plant,
@@ -63,7 +63,7 @@ $(document).ready(function () {
                     }]
             }],
             where: {
-               id: 1
+               id: Users.id
             }
         })
             .then(function (wateredData) {

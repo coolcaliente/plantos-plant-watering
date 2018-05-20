@@ -30,6 +30,7 @@ module.exports = function (app) {
     app.get("/signup", function (req, res) {
         var hbsObj = {
             title: "signup",
+            bodyClass: "blue"
         }
         res.render("signup", hbsObj)
     });
