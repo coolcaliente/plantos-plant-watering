@@ -6465,6 +6465,10 @@ h2 {
   font-weight: 700;
   font-size: 1.5rem; }
 
+h3 {
+  font-weight: 700;
+  font-size: 1rem; }
+
 .signInBody {
   background-image: url("../img/succulents.jpg");
   -webkit-background-size: cover;
@@ -6495,6 +6499,17 @@ h2 {
   text-transform: uppercase;
   font-weight: 700;
   font-size: .8rem; }
+
+.card {
+  width: 12rem;
+  margin: 0 2rem 2rem 0; }
+
+.card-title {
+  text-align: center; }
+
+.card-img-top {
+  height: 12rem;
+  object-fit: cover; }
 
 .cb-slideshow,
 .cb-slideshow:after {
