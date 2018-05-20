@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
-    "database": "127.0.0.1",
-    "host": "3306",
+    "password": "Chronos02",
+    "database": "hngplants_db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
