@@ -14,17 +14,6 @@ module.exports = function (app) {
                 console.log("app.get");
             });
     });
-    // GET route by category
-    // app.get("api/plants/category/:category", function (req, res) {
-    //     db.Plant.findAll({
-    //         where: {
-    //             category: req.params.category
-    //         }
-    //     })
-    //     .then(function(dbPlant){
-    //         res.json(dbPlant);
-    //     });
-    // });
 
 // $(document).ready(function () {
 //     getPlants();
@@ -38,7 +27,22 @@ module.exports = function (app) {
 //     }
 // });
 
-    // GET route for specific plant
+    //get route for current user
+    // app.get("/api/user/:id", function (req, res) {
+    //     db.User.findOne({
+    //         where: {
+    //             id: req.params.id
+    //         }
+    
+    //     })
+    //         .then(function (dbUser) {
+    //             res.json(dbUser);
+
+    //         });
+    // });
+    
+
+    // GET route for specific plant -- do we need this??
     app.get("/api/plants/:id", function (req, res) {
         console.log(req.params.id);
         db.Plant.findOne({
@@ -51,13 +55,30 @@ module.exports = function (app) {
             });
     });
 
-    // GET route for all lastWatered data
-    app.get("/api/lastWatered/:Userid/:Plantid", function (req, res) {
+    // GET route for all plants for a specific user
+    app.get("/api/usersplants/", function (req, res) {
+        db.User.findOne({
+            include: [{
+                model: db.Plant,
+            }],
+            where: {
+                id: req.user.id
+            }
+        })
+            .then(function (plantsPerUser) {
+                res.json(plantsPerUser);
+                // console.log(req.user.id);
+            });
+    });
+
+    // GET route for all lastWatered data for a specific user and specific plant
+    //don't need /:Userid bc it's already in the req
+    app.get("/api/lastWatered/:Plantid", function (req, res) {
         db.lastWatered.findAll({
             limit: 4,
             order: [['createdAt', 'DESC']],
             where: {
-               UserId:req.params.Userid,
+               UserId:req.user.id,
                PlantId:req.params.Plantid
             }
         })
@@ -67,14 +88,14 @@ module.exports = function (app) {
             });
     });
 
-    //why do we need this????
-    // GET route for specific plant's last watered date
+    // GET route for all lastWatered data for all plants for a specific user
+    //do we need this???
     app.get("/api/lastWatered/:id", function (req, res) {
         console.log(req.params.id);//working
-        db.lastWatered.findOne({
+        db.lastWatered.findAll({
             where: {
-                id: req.params.id
-            },
+                UserId: req.params.id
+            }
             // include: [db.lastWatered]
         })
             .then(function (dbLastWatered) {
