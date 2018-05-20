@@ -45,15 +45,24 @@ VALUES ('Areca Palm/ Butterfly Palm', 'Chrysalidocarpus lutescense', 'Water dail
 ('Christmas Cactus', 'Schlumbergera Bridgesii', 'Keep soil moist, but avoid making it too soggy.', 1, true, 2, 0, 0, 20);
 
 INSERT INTO Users (email, password, createdAt, updatedAt) 
-VALUES ('william@william.com', 'password', 0, 0);
+VALUES ('william@william.com', 'password', 0, 0),
+("kris@gmail.com", "$2a$10$58xhMXJ1piupF2K8RQdhyuMqmD6Dvd4HpKlI871VL3mhT7ejqKV92", 0, 0);
 
 INSERT INTO plantUser (userID, plantID, createdAt, updatedAt) VALUES (1, 1, 0, 0);
 
 INSERT INTO lastWatereds (createdAt, updatedAt, userId, PlantId) 
-VALUES ('2018-05-4', null, 1, 1),
-('2018-05-8', null, 1, 1),
-('2018-05-12', null, 1, 1),
-('2018-05-16', null, 1, 1),
-(null, null, 1, 2),
-('2018-05-15', null, 1, 3),
-('2018-05-16', null, 1, 3);
+VALUES ('2018-05-4', 0, 1, 1),
+('2018-05-8', 0, 1, 1),
+('2018-05-12', 0, 1, 1),
+('2018-05-16', 0, 1, 1),
+("2018-05-10", 0, 1, 2),
+('2018-05-15', 0, 1, 3),
+('2018-05-16', 0, 1, 3),
+
+('2018-05-4', 0, 2, 1),
+('2018-05-8', 0, 2, 1),
+('2018-05-12', 0, 2, 1),
+('2018-05-16', 0, 2, 1),
+("2018-05-10", 0, 2, 2),
+('2018-05-15', 0, 2, 3),
+('2018-05-16', 0, 2, 3);
