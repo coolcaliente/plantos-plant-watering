@@ -52,7 +52,7 @@ module.exports = function (app) {
     });
 
     // GET route for all lastWatered data
-    app.get("/api/lastWatered/", function (req, res) {
+    app.get("/api/lastWatered/:Users.id", function (req, res) {
         db.User.findOne({
             include: [{
                 model: db.Plant,
@@ -63,7 +63,7 @@ module.exports = function (app) {
                     }]
             }],
             where: {
-               id: userid
+               id: Users.id
             }
         })
             .then(function (wateredData) {
