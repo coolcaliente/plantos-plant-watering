@@ -11,36 +11,68 @@
     </div>
 
     <div class="col mt-sm-5 mt-md-0">
-      {{!-- this was the div the 
+      {{!--
       <div id="myPlantsPage" class="col mt-sm-5 mt-md-0"> --}}
 
         <div id="myPlantsPage" class="row ml-md-3">
 
 
-          {{!-- <div class="card">
+
+          <div class="card">
             <img class="card-img-top" src="../assets/img/leafplant.jpg" alt="Card image cap">
             <div class="card-body">
-              <h3 class="card-title text-truncate">Card title that is kind of long</h3>
-              <button class="btn btn-primary btn-block">33 Days Left</button>
+              <h3 class="card-title text-truncate">Plant Number One</h3>
+              <button class="btn btn-outline-primary btn-block">Water Now</button>
             </div>
-          </div> --}}
+          </div>
+
+          <div class="card">
+            <img class="card-img-top" src="../assets/img/littleplant.jpg" alt="Card image cap">
+            <div class="card-body" data-toggle="modal" data-target="#happyMsgModal">
+              <h3 class="card-title text-truncate">Plant Number Two</h3>
+              <button class="btn btn-primary btn-block">Watered</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img-top" src="../assets/img/houseplant.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title text-truncate">Plant Number Three</h3>
+              <button class="btn btn-dark btn-block">5 Days Left</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img-top" src="../assets/img/greencactus.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title text-truncate">Plant Number Four</h3>
+              <button class="btn btn-dark btn-block">35 Days Left</button>
+            </div>
+          </div>
 
 
         </div>
 
 
 
-        <!-- Happy Msg Modal -->
+        <!-- Happy message Modal -->
         <div class="modal fade" id="happyMsgModal" tabindex="-1" role="dialog" aria-labelledby="happy-msg-modal" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              {{!--
-              <div class="modal-header"> --}}
-                <h5 class="modal-title" id="happy-msg-modal">You're doing great!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                {{!-- </div> --}}
+              <div class="wrap">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="exampleModalLabel">Good Job!</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p class="lead">Your plant is watered and happy!</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
