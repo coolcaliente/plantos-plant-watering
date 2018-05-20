@@ -52,18 +52,13 @@ module.exports = function (app) {
     });
 
     // GET route for all lastWatered data
-    app.get("/api/lastWatered/:Users.id", function (req, res) {
-        db.User.findOne({
-            include: [{
-                model: db.Plant,
-                    include: [{
-                        model: db.lastWatered,
-                        limit: 4,
-                        order: [['createdAt', 'DESC']]
-                    }]
-            }],
+    app.get("/api/lastWatered/:Userid/:Plantid", function (req, res) {
+        db.lastWatered.findAll({
+            limit: 4,
+            order: [['createdAt', 'DESC']],
             where: {
-               id: Users.id
+               UserId:req.params.Userid,
+               PlantId:req.params.Plantid
             }
         })
             .then(function (wateredData) {
@@ -72,6 +67,7 @@ module.exports = function (app) {
             });
     });
 
+    //why do we need this????
     // GET route for specific plant's last watered date
     app.get("/api/lastWatered/:id", function (req, res) {
         console.log(req.params.id);//working
