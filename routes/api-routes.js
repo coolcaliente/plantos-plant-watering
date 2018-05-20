@@ -26,18 +26,31 @@ module.exports = function (app) {
     //     });
     // });
 
-// $(document).ready(function () {
-//     getPlants();
-//     function getPlants() {
-//         $.get("/api/Master_Plant", function (data) {
-//             for (var i = 0; i < data.length; i++) {
-//                 var newOption = $("<option>");
-//                 newOption.attr("id", data[i].plant_common_name);
-//             }
-//         })
-//     }
-// });
+    // $(document).ready(function () {
+    //     getPlants();
+    //     function getPlants() {
+    //         $.get("/api/Master_Plant", function (data) {
+    //             for (var i = 0; i < data.length; i++) {
+    //                 var newOption = $("<option>");
+    //                 newOption.attr("id", data[i].plant_common_name);
+    //             }
+    //         })
+    //     }
+    // });
 
+    //get route for current user
+    app.get("/api/user/:id", function (req, res) {
+        db.user.findOne({
+            where: {
+                id: req.params.id
+            }
+
+        })
+            .then(function (dbUser) {
+                res.json(dbUser);
+
+            });
+    });
     // GET route for specific plant
     app.get("/api/plants/:id", function (req, res) {
         console.log(req.params.id);
@@ -57,8 +70,8 @@ module.exports = function (app) {
             limit: 4,
             order: [['createdAt', 'DESC']],
             where: {
-               UserId:req.params.Userid,
-               PlantId:req.params.Plantid
+                UserId: req.params.Userid,
+                PlantId: req.params.Plantid
             }
         })
             .then(function (wateredData) {
@@ -82,7 +95,7 @@ module.exports = function (app) {
             });
     });
 
-//----------------------------------------------------
+    //----------------------------------------------------
     // POST route is working
     app.post("/api/plants", function (req, res) {
 
@@ -108,9 +121,9 @@ module.exports = function (app) {
     app.post("/api/lastWatered/Post", function (req, res) {
         db.lastWatered.post({
         })
-        .then(function (dbLastWatered) {
-            res.json(dbLastWatered);
-        });
+            .then(function (dbLastWatered) {
+                res.json(dbLastWatered);
+            });
     });
 
     // POST lastWatered
@@ -128,17 +141,17 @@ module.exports = function (app) {
     app.put("/api/lastWatered/Update", function (req, res) {
         db.lastWatered.update({
         })
-        .then(function (dbLastWatered) {
-            res.json(dbLastWatered);
-        });
+            .then(function (dbLastWatered) {
+                res.json(dbLastWatered);
+            });
     });
-    
+
     // PUT route - updates the last_watered_date, lwd1,2,3,4, plant_water_int???? all in one or separate???
     app.put("/api/lastWatered/:id", function (req, res) {
         db.Plant.update(
             {
-                last_watered_date:req.body.last_watered_date
-            },       
+                last_watered_date: req.body.last_watered_date
+            },
             {
                 where: {
                     id: req.params.id
@@ -170,7 +183,7 @@ module.exports = function (app) {
         // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
         // So we're sending the user back the route to the members page because the redirect will happen on the front end
         // They won't get this or even be able to access this page if they aren't authed
-        console.log ("post api login  route working!!");
+        console.log("post api login  route working!!");
         res.json("/myPlants");
     });
 
