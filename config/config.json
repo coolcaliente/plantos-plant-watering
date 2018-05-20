@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "andirules",
+    "password": "password",
     "database": "hngplants_db",
-    "host": "127.0.0.1",
+    "host": "33127.0.0.106",
     "dialect": "mysql"
   },
   "test": {
