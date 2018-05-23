@@ -60,6 +60,7 @@ module.exports = function (app) {
         db.User.findOne({
             include: [{
                 model: db.Plant,
+                // model: db.Images,
             }],
             where: {
                 id: req.user.id
@@ -88,10 +89,21 @@ module.exports = function (app) {
             });
     });
 
+    //GET for images -- DOES NOT WORK
+    app.get("/api/images/:id", function (req, res) {
+        db.Images.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(function(plantImage){
+            res.json(plantImage);
+        });
+    });
+
     // GET route for all lastWatered data for all plants for a specific user
     //do we need this???
     app.get("/api/lastWatered/:id", function (req, res) {
-        console.log(req.params.id);//working
         db.lastWatered.findAll({
             where: {
                 UserId: req.params.id
@@ -158,7 +170,7 @@ module.exports = function (app) {
     app.put("/api/lastWatered/:id", function (req, res) {
         db.Plant.update(
             {
-                last_watered_date: req.body.last_watered_date
+                last_water_int: req.body.last_water_int
             },
             {
                 where: {

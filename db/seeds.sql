@@ -54,7 +54,8 @@ VALUES (1, 1, 0, 0),
 (1, 3, 0, 0),
 (2, 1, 0, 0),
 (2, 2, 0, 0),
-(2, 3, 0, 0);
+(2, 3, 0, 0),
+(2, 4, 0, 0);
 
 INSERT INTO lastWatereds (createdAt, updatedAt, userId, PlantId) 
 VALUES ('2018-05-4', 0, 1, 1),
@@ -71,4 +72,28 @@ VALUES ('2018-05-4', 0, 1, 1),
 ('2018-05-16', 0, 2, 1),
 ("2018-05-10", 0, 2, 2),
 ('2018-05-15', 0, 2, 3),
-('2018-05-16', 0, 2, 3);
+('2018-05-16', 0, 2, 3),
+(0, 0, 2, 4);
+
+INSERT INTO images (image_url, title, caption, createdAt, updatedAt)
+VALUES 
+('https://www.houseplantsexpert.com/assets/images/areca_palm_1.jpg', 'Butterfly Palm', 'Butterfly Palm', 0, 0),
+('https://nurserylive.com/buy-lucky-plants-plants-online-in-india/rubber-plant-plants-in-india', 'Rubber Plant', 'Rubber Plant', 0, 0),
+('https://cdn3.bigcommerce.com/s-2drwt2az/products/14080/images/44199/ivybaltic1__06289.1493248677.500.659.jpg?c=2','English Ivy', 'Englsih Ivy', 0, 0),
+('https://cdn.zmescience.com/wp-content/uploads/2017/09/coffee-beans-1650788_960_720.jpg', 'Coffee Plant', 'Coffee Plant', 0, 0),
+('https://www.kennedy.edu.ar/wp-content/uploads/2017/11/propiedades-del-aloe-vera.jpg', 'Aloe Vera', 'Aloe Vera', 0, 0),
+('https://www.pennington.com/-/media/Images/Pennington-NA/US/blog/fertilizer/Secrets-to-Growing-Vibrant-Hibiscus/Yellow-Hibiscus.jpg?h=536&la=en&w=800&hash=3AF4F883379417BAFBD72BFDD158811F6B2EB670', 'Hibiscus', 'Hibiscus', 0, 0),
+('https://www.americanmeadows.com/media/catalog/product/cache/1/image/500x/2664a1c26d20ff89f08769f165108d16/d/a/daffodil-fortissimo1.jpg', 'Daffodil', 'Daffodil', 0, 0),
+('https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/blue-agave-against-adobe-wall-toni-abdnour.jpg', 'Blue Agave', 'Blue Agave', 0, 0),
+('https://www.ourhouseplants.com/imgs-gallery/DieffenbachiaL4.jpg', 'Dumb Cane', 'Dumb Cane', 0, 0),
+('https://www.americanmeadows.com/media/wysiwyg/Flower-Bulbs/Elephant-Ears/Elephant_Ear_Container.jpg', 'Elephants Ear', 'Elephants Ear', 0, 0),
+('https://www.po.flowerscanadagrowers.com/uploads/2011/10/5974_9.jpg', 'Babies Tears', 'Babies Tears', 0, 0),
+('https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Darlingtonia_californica_ne1.JPG/1200px-Darlingtonia_californica_ne1.JPG', 'California Pitcher Plant', 'California Pitcher Plant', 0, 0),
+('https://i.pinimg.com/originals/11/cf/54/11cf5435fbc0163e5b4b622a9fbbef5d.jpg', 'Foxtail Fern', 'Foxtail Fern', 0, 0),
+('http://www.guide-to-houseplants.com/images/xnerve-plant-leaves.jpg.pagespeed.ic.vHPOUg2IeE.jpg', 'Nerve Plant', ' Nerve Plant', 0, 0),
+('https://cdn.shopify.com/s/files/1/2045/8185/products/gold_dust_aucuba-bush3.jpg?v=1513567179', 'Gold Dust Plant', 'Gold Dust Plant', 0, 0),
+('https://i.ytimg.com/vi/pDAKSwUN134/maxresdefault.jpg', 'Angel Trumpet Plant', 'Angel Trumpet Plant', 0, 0),
+('https://parkseed.com/images/xxl/02840-pk-p1.jpg', 'Begonia', 'Begonia', 0, 0),
+('https://www.ourhouseplants.com/imgs-gallery/jade-plant-crassula-ovata-5L.jpg','Jade Plant', 'Jade Plant', 0, 0),
+('https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/tulips.jpg?itok=2OhoOECS', 'Tulips', 'Tulips', 0, 0),
+('http://dogtails.dogwatch.com/wp-content/uploads/2016/07/ChristmasCactus-800x533.jpg', 'Christmas Cactus', 'Christmas Cactus', 0, 0);

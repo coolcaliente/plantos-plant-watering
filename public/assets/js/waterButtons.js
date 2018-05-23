@@ -32,7 +32,6 @@ $(document).ready(function() {
 
   //clicking "figuring cycle" button starts calculating and sends msg with directions
   $(document).on("click", ".figuringCycle", function () {
-    // console.log(this.id);
     $.get("/api/lastWatered/"+this.id, function(data){
       console.log(data);
       var date = moment();
@@ -75,7 +74,7 @@ $(document).ready(function() {
         $("#congratsMsgModal").modal();
 
         //put lwd1, 2, 3, 4 to null in lastwatered table
-
+        //need api call to do this!!!!!!!!!!
 
 
         //update last_watered_date in plant table
@@ -105,6 +104,7 @@ $(document).ready(function() {
     });
   });
 
+  //this doesn't work
   //clicking "x days left" gives option to restart the water cycle, recalcuate the days, or delete the plant
   $(document).on("click", "changeCycleBtn", function () {
     console.log(this);
