@@ -10,10 +10,10 @@ module.exports = function (sequelize, DataTypes) {
         },
         plant_scientific_name: {
             type: DataTypes.STRING,
-            // allowNull: false,
-            validate: {
-                len: [1]
-            }
+            allowNull: true,
+            // validate: {
+            //     len: [1]
+            // }
         },
         plant_water_text: {
             type: DataTypes.TEXT("long"),

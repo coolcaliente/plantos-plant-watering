@@ -9,9 +9,8 @@ $(document).ready(function() {
   //addPlantBtn
   $("#addPlantBtn").on("click", function(){
     window.location.href="/addPlant"
-    //if logged in, take to page
-    //else take to sign-up page
   });
+
   //cancelAddPlantBtn
   $("#cancelAddPlantBtn").on("click", function(e){
     e.preventDefault();
@@ -139,7 +138,7 @@ $(document).ready(function() {
       masterPlantId = null;
     };
 
-    if (plant_common_name!=="" && plant_water_text!== "" && sun_placement !== "" && pet_friendly !== ""){
+    if ($("#commonName").val().trim() !=="" && ($("#wateringNeedsText").val().trim() !== "" || $("#wateringNeedsInt").val().trim() !== "")){
 
       var newPlant = {
         plant_common_name: $("#commonName").val().trim(),

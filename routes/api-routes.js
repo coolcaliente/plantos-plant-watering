@@ -158,7 +158,7 @@ module.exports = function (app) {
     app.put("/api/lastWatered/:id", function (req, res) {
         db.Plant.update(
             {
-                last_watered_date: req.body.last_watered_date
+                last_water_int: req.body.last_water_int
             },
             {
                 where: {
